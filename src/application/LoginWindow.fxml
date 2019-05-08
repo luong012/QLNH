@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="168.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AppController">
+   <children>
+      <Label fx:id="usernameLabel" layoutX="128.0" layoutY="50.0" text="Username" />
+      <Label fx:id="passwordLabel" layoutX="128.0" layoutY="82.0" text="Password" />
+      <TextField fx:id="usernameTField" layoutX="190.0" layoutY="46.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your username" />
+      <PasswordField fx:id="passwordTField" layoutX="190.0" layoutY="78.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your password" />
+      <Button fx:id="loginButton" layoutX="203.0" layoutY="112.0" mnemonicParsing="false" onAction="#loginSystem" prefHeight="25.0" prefWidth="63.0" text="Login" />
+      <Button fx:id="exitButton" layoutX="318.0" layoutY="112.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="63.0" text="Exit" />
+      <ImageView fx:id="loginImage" fitHeight="118.0" fitWidth="89.0" layoutX="23.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/accountlogin-icon_compressed.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

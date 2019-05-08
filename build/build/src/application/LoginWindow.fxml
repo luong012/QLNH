@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="142.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AppController">
+   <children>
+      <Label fx:id="labelUsername" layoutX="21.0" layoutY="34.0" text="Username" />
+      <Label fx:id="labelPassword" layoutX="21.0" layoutY="66.0" text="Password" />
+      <TextField fx:id="tfieldUsername" layoutX="97.0" layoutY="30.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your username" />
+      <PasswordField fx:id="tfieldPassword" layoutX="97.0" layoutY="62.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your password" />
+      <Button fx:id="buttonLogin" layoutX="110.0" layoutY="96.0" mnemonicParsing="false" onAction="#loginSystem" prefHeight="25.0" prefWidth="63.0" text="Login" />
+      <Button fx:id="buttonExit" layoutX="224.0" layoutY="96.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="63.0" text="Exit" />
+   </children>
+</AnchorPane>
