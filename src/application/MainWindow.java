@@ -17,7 +17,6 @@ public class MainWindow extends Application {
 	           primaryStage.setTitle("Main");
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
-	           primaryStage.setResizable(false);
 	        
 	       } catch(Exception e) {
 	           e.printStackTrace();
