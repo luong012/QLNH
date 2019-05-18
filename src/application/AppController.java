@@ -53,6 +53,19 @@ public class AppController {
 	    exitButton.setDisable(false);	   
 	}
 	
+	public void illegalText() {
+		loginButton.setDisable(true);
+		exitButton.setDisable(true);
+		Alert alert = new Alert(AlertType.WARNING);
+	    alert.setTitle("Login Failed");
+		alert.setHeaderText(null);
+	    alert.setContentText("Username/password username must be from 1 to 15 characters.");
+	    alert.showAndWait();	
+	    loginButton.setDisable(false);
+	    exitButton.setDisable(false);	   
+	}
+	
+	
 	public void correctPassword() {
 		loginButton.setDisable(true);
 		exitButton.setDisable(true);
@@ -79,11 +92,14 @@ public class AppController {
 			Global.activeRole = roleResult;
 			Global.setRoleName(roleResult);
 			correctPassword();
+			
 			Stage stage = (Stage) exitButton.getScene().getWindow();
 		    stage.close();	
 			MainWindow mainWindow = new MainWindow();
 			mainWindow.start(stage);
 		}
+		else 
+			if (username.length()>15 || username.length()<1 || password.length()>15 || password.length()<1 ) illegalText();
 		else {
 		wrongPassword();
 		}

@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class OracleConnUtils {
-	public static Connection getOracleConnection() throws SQLException,
-    ClassNotFoundException {
+public class Init  { 
+	
+	public static Connection getOracleConnection() throws SQLException, ClassNotFoundException {
 		String hostName = "localhost";
 		String sid = "orcl18c";
 		String userName = "qlnh";
@@ -22,6 +22,8 @@ public class OracleConnUtils {
 		String connectionURL = "jdbc:oracle:thin:@" + hostName + ":1521:" + sid;
 
 		Connection conn = DriverManager.getConnection(connectionURL, userName, password);
- return conn;
-}
+		
+		System.out.println("done");
+		return conn;
+	}
 }
