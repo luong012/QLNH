@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
  
 import javafx.event.ActionEvent;
@@ -68,8 +69,12 @@ public class AppController {
 	    stage.close();
 	}
 	
-	public void loginSystem(ActionEvent event) {
-		if (usernameTField.getText().equals("root") && passwordTField.getText().equals("admin")) {
+	public void loginSystem(ActionEvent event) throws ClassNotFoundException, SQLException {
+		String username = usernameTField.getText();
+		String password = passwordTField.getText();
+		int roleResult = AppData.getRole(username, password);
+		System.out.println(roleResult);
+		if (roleResult>0) {
 			correctPassword();
 			Stage stage = (Stage) exitButton.getScene().getWindow();
 		    stage.close();	

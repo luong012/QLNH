@@ -58,27 +58,27 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nameTField" editable="false" GridPane.columnIndex="1">
+                        <TextField fx:id="nameTField" disable="true" editable="false" style="-fx-opacity: 0.85;" GridPane.columnIndex="1">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="idnumberTField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <DatePicker fx:id="birthDatePicker" disable="true" editable="false" prefHeight="30.0" prefWidth="391.0" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="idnumberTField" disable="true" editable="false" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="locationTField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <TextField fx:id="locationTField" disable="true" editable="false" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="phoneTField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="phoneTField" disable="true" editable="false" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <DatePicker fx:id="birthDatePicker" editable="false" prefHeight="30.0" prefWidth="391.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </content>
@@ -106,14 +106,14 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <RadioButton fx:id="manRadio" disable="true" mnemonicParsing="false" selected="true" text="Quản lí" GridPane.columnIndex="1">
+                        <RadioButton fx:id="manRadio" disable="true" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Quản lí" GridPane.columnIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="position" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="cashierRadio" disable="true" mnemonicParsing="false" text="Thu ngân" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <RadioButton fx:id="waiterRadio" disable="true" mnemonicParsing="false" text="Phục vụ" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="chefRadio" disable="true" mnemonicParsing="false" text="Đầu bếp" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <RadioButton fx:id="cashierRadio" disable="true" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Thu ngân" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="waiterRadio" disable="true" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Phục vụ" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="chefRadio" disable="true" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Đầu bếp" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </content>
