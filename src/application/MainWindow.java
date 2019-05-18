@@ -13,8 +13,9 @@ public class MainWindow extends Application {
 	 public void start(Stage primaryStage) {
 	       try {
 	           Parent root = FXMLLoader.load(getClass()
-	                   .getResource("/application/MainWindow.fxml"));	 
-	           primaryStage.setTitle("Main");
+	                   .getResource("/application/MainWindow.fxml"));
+	           String title = "Main Window "+Global.activeUsername+"/"+Global.activeRoleName;
+	           primaryStage.setTitle(title);
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
 	        

@@ -9,8 +9,9 @@ import javafx.scene.Parent;
 
 
 public class LoginWindow extends Application {
-
-	 public void start(Stage primaryStage) {
+	static String activeUsername;
+	static int activeRole;
+	public void start(Stage primaryStage) {
 	       try {
 	           Parent root = FXMLLoader.load(getClass()
 	                   .getResource("/application/LoginWindow.fxml"));

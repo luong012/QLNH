@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+
 public class AppController {
 	
 	@FXML
@@ -69,12 +70,14 @@ public class AppController {
 	    stage.close();
 	}
 	
-	public void loginSystem(ActionEvent event) throws ClassNotFoundException, SQLException {
+	public void loginSystem(ActionEvent event) throws ClassNotFoundException, SQLException{
 		String username = usernameTField.getText();
 		String password = passwordTField.getText();
 		int roleResult = AppData.getRole(username, password);
-		System.out.println(roleResult);
 		if (roleResult>0) {
+			Global.activeUsername = username;
+			Global.activeRole = roleResult;
+			Global.setRoleName(roleResult);
 			correctPassword();
 			Stage stage = (Stage) exitButton.getScene().getWindow();
 		    stage.close();	

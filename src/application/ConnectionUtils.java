@@ -10,12 +10,9 @@ return OracleConnUtils.getOracleConnection();
 }
 public static void main(String[] args) throws SQLException,
     ClassNotFoundException {
+		Connection conn = ConnectionUtils.getMyConnection();
 
-System.out.println("Get connection ... ");
-Connection conn = ConnectionUtils.getMyConnection();
+		System.out.println("Get connection " + conn);
 
-System.out.println("Get connection " + conn);
-
-System.out.println("Done!");
 }
 }
