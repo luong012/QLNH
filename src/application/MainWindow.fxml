@@ -36,12 +36,14 @@
             </Menu>
             <Menu fx:id="restaurantMenu" mnemonicParsing="false" text="Restaurant">
                <items>
-                  <MenuItem fx:id="tableinfoItem" mnemonicParsing="false" text="Table Info" />
+                  <MenuItem fx:id="tableinfoItem" mnemonicParsing="false" onAction="#viewTableInfo" text="Table Info" />
                   <Menu fx:id="tablemanMenu" mnemonicParsing="false" text="Table Management">
                     <items>
-                      <MenuItem fx:id="addtableItem" mnemonicParsing="false" text="Add" />
+                      <MenuItem fx:id="addtableItem" mnemonicParsing="false" onAction="#addTable" text="Add" />
                         <MenuItem fx:id="modifytableItem" mnemonicParsing="false" text="Modify" />
                         <MenuItem fx:id="deletetableItem" mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="tableoptionItem" mnemonicParsing="false" onAction="#viewTableTypeManagement" text="Options" />
                     </items>
                   </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -51,6 +53,8 @@
                       <MenuItem fx:id="addmenuItem" mnemonicParsing="false" text="Add" />
                         <MenuItem fx:id="modifymenuItem" mnemonicParsing="false" text="Modify" />
                         <MenuItem fx:id="deletemenuItem" mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuoptionItem" mnemonicParsing="false" text="Option" />
                     </items>
                   </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
@@ -59,6 +63,8 @@
                     <items>
                       <MenuItem fx:id="addresourceItem" mnemonicParsing="false" text="Add" />
                         <MenuItem fx:id="modifyresourceItem" mnemonicParsing="false" text="Modify" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="resourceoptionItem" mnemonicParsing="false" text="Option" />
                     </items>
                   </Menu>
                </items>

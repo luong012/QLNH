@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddTableController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" text="Xác nhận" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="433.0" prefWidth="571.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" collapsible="false" text="Thông tin bàn">
+               <content>
+                  <GridPane prefHeight="414.0" prefWidth="578.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="134.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="424.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="87.0" minHeight="7.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="126.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="249.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="nameLabel" text="Mã bàn:" />
+                        <Label fx:id="birthLabel" text="Loại bàn:" GridPane.rowIndex="1" />
+                        <Label fx:id="idnumberLabel" text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                        <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="3" />
+                        <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="tabletypeCBox" prefHeight="30.0" prefWidth="439.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextArea fx:id="tabledescTArea" prefHeight="218.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TitledPane>
+            <Separator prefHeight="12.0" prefWidth="600.0" visible="false" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

@@ -27,8 +27,7 @@ public class InitForm extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/InitForm.fxml"));
 	
 			primaryStage.setTitle("Login");
-//			primaryStage.initStyle(StageStyle.UNDECORATED);
-			primaryStage.initStyle(StageStyle.TRANSPARENT);
+//			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			
 			Scene s = new Scene(root);
 		
@@ -38,8 +37,6 @@ public class InitForm extends Application {
 			
 			primaryStage.show();
 			primaryStage.setResizable(false);
-
-			//InitFormController.loadingImg.getScene().setFill(null);
 			
 			initDatabase();
 			
@@ -50,8 +47,7 @@ public class InitForm extends Application {
 				loginWindow.start(primaryStage);
 				}
 			);
-			delay.play();
-			
+			delay.play();			
 			
 		
 		

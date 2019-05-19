@@ -142,6 +142,15 @@ public class MainController {
 
     @FXML
     private Button shortcut4Button;
+    
+    @FXML
+    private MenuItem menuoptionItem;
+    
+    @FXML
+    private MenuItem resourceoptionItem;
+
+    @FXML
+    private MenuItem tableoptionItem;
 
     @FXML
     private MenuItem monthlyworkingreportItem;
@@ -182,4 +191,32 @@ public class MainController {
     	employeeAccountDetails.start(newStage);
         
     }
+    
+    public void viewTableTypeManagement(ActionEvent event) {
+    	TableTypeWindow tableTypeWindow = new TableTypeWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	tableTypeWindow.start(newStage);
+    }
+    
+    public void viewTableInfo(ActionEvent event) {
+    	ViewTableInfoWindow viewTableInfoWindow = new ViewTableInfoWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	viewTableInfoWindow.start(newStage);
+    }
+    
+    public void addTable(ActionEvent event) {
+    	AddTableWindow addTableWindow = new AddTableWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	addTableWindow.start(newStage);   
+    }
+    
 }

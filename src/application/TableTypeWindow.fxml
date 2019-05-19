@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableTypeController">
+  <tabs>
+    <Tab text="Thêm loại bàn">
+         <content>
+            <VBox prefHeight="233.0" prefWidth="506.0">
+               <children>
+                  <TitledPane animated="false" collapsible="false" text="Thêm loại bàn">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <content>
+                        <GridPane prefHeight="372.0" prefWidth="578.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="168.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="390.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Mã loại bàn:" />
+                              <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
+                              <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                              <TextField fx:id="addtabletypeidTField" prefHeight="30.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="addtabletypenameTFileld" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="addtabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </TitledPane>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <Button fx:id="addconfirmButton" mnemonicParsing="false" onAction="#confirmAdd" text="Xác nhận" />
+                        <Button fx:id="addcancelButton" mnemonicParsing="false" onAction="#cancelAdd" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab text="Sửa loại bàn">
+         <content>
+            <VBox prefHeight="233.0" prefWidth="506.0">
+               <children>
+                  <TitledPane animated="false" collapsible="false" text="Thêm loại bàn">
+                     <content>
+                        <GridPane prefHeight="372.0" prefWidth="578.0">
+                           <children>
+                              <Label text="Mã loại bàn:" />
+                              <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
+                              <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="modtableidCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="modtabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="modtabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="168.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="390.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TitledPane>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <Button fx:id="modconfirmButton" mnemonicParsing="false" onAction="#confirmMod" text="Xác nhận" />
+                        <Button fx:id="modcancelButton" mnemonicParsing="false" onAction="#cancelMod" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+    </Tab>
+      <Tab text="Xoá loại bàn">
+         <content>
+            <VBox prefHeight="233.0" prefWidth="506.0">
+               <children>
+                  <TitledPane animated="false" collapsible="false" text="Thêm loại bàn">
+                     <content>
+                        <GridPane prefHeight="372.0" prefWidth="578.0">
+                           <children>
+                              <Label text="Mã loại bàn:" />
+                              <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
+                              <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="deltabletypenameCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="deltabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="deltabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="168.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="390.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TitledPane>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <Button fx:id="delconfirmButton" mnemonicParsing="false" onAction="#confirmDel" text="Xác nhận" />
+                        <Button fx:id="delcancelButton" mnemonicParsing="false" onAction="#cancelDel" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

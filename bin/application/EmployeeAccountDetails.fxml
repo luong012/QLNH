@@ -33,31 +33,11 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="nameLabel" text="Họ và tên:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="birthLabel" text="Ngày sinh:" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="idnumberLabel" text="Số CMND" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="locationLabel" text="Địa chỉ" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="phoneLabel" text="SĐT" GridPane.rowIndex="4">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <Label fx:id="nameLabel" text="Họ và tên:" />
+                        <Label fx:id="birthLabel" text="Ngày sinh:" GridPane.rowIndex="1" />
+                        <Label fx:id="idnumberLabel" text="Số CMND" GridPane.rowIndex="2" />
+                        <Label fx:id="locationLabel" text="Địa chỉ" GridPane.rowIndex="3" />
+                        <Label fx:id="phoneLabel" text="SĐT" GridPane.rowIndex="4" />
                         <TextField fx:id="nameTField" disable="true" editable="false" style="-fx-opacity: 0.85;" GridPane.columnIndex="1">
                            <font>
                               <Font size="14.0" />
@@ -83,7 +63,7 @@
                   </GridPane>
                </content>
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </TitledPane>
             <Separator prefHeight="12.0" prefWidth="600.0" visible="false" />
@@ -101,11 +81,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="resposLabel" text="Chức vụ tại nhà hàng:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <Label fx:id="resposLabel" text="Chức vụ tại nhà hàng:" />
                         <RadioButton fx:id="manRadio" disable="true" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Quản lí" GridPane.columnIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="position" />
@@ -118,7 +94,7 @@
                   </GridPane>
                </content>
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </TitledPane>
          </children>
