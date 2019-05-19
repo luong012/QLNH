@@ -87,11 +87,11 @@
    <center>
       <TableView fx:id="tableTView" editable="true" prefHeight="317.0" prefWidth="795.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="88.0" text="Mã bàn" />
-          <TableColumn prefWidth="96.8399658203125" text="Loại bàn" />
-            <TableColumn prefWidth="152.39208984375" text="Số lượng khách tối đa" />
-            <TableColumn prefWidth="133.193603515625" text="Trạng thái hiện tại" />
-            <TableColumn prefWidth="350.199951171875" text="Mô tả bàn" />
+          <TableColumn fx:id="tableidColumn" prefWidth="88.0" text="Mã bàn" />
+          <TableColumn fx:id="tabletypeColumn" prefWidth="96.8399658203125" text="Loại bàn" />
+            <TableColumn fx:id="tablemaxcusColumn" prefWidth="152.39208984375" text="Số lượng khách tối đa" />
+            <TableColumn fx:id="tablestatusColumn" prefWidth="133.193603515625" text="Trạng thái hiện tại" />
+            <TableColumn fx:id="tabledescColumn" prefWidth="350.199951171875" text="Mô tả bàn" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

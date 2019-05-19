@@ -16,7 +16,6 @@ public class TableTypeWindow extends Application {
 	           primaryStage.setTitle("Table Type Management");
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
-	        
 	       } catch(Exception e) {
 	           e.printStackTrace();
 	       }

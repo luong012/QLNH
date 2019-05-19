@@ -112,7 +112,7 @@
                               <Label text="Mã loại bàn:" />
                               <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
                               <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
-                              <ComboBox fx:id="deltabletypenameCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="deltableidCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
                               <TextField fx:id="deltabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="deltabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>

@@ -1,5 +1,6 @@
 package application;
 
+
 public class Global {
 	static String activeUsername = "NULL";
 	static int activeRole = 0;
@@ -10,5 +11,4 @@ public class Global {
 		if (role==3) activeRoleName="Waiter";
 		if (role==4) activeRoleName="Chef";
 	}
-
 }
