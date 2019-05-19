@@ -9,12 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.Parent;
 
 
-public class EmployeeAccountDetails extends Application {
+public class EmployeeAccountDetailsWindow extends Application {
 
 	 public void start(Stage primaryStage) {
 	       try {
 	           Parent root = FXMLLoader.load(getClass()
-	                   .getResource("/application/EmployeeAccountDetails.fxml"));
+	                   .getResource("/application/EmployeeAccountDetailsWindow.fxml"));
 	 
 	           primaryStage.setTitle("Account Details");
 	           primaryStage.setScene(new Scene(root));

@@ -183,12 +183,12 @@ public class MainController {
     }
     
     public void viewAccDetails(ActionEvent event) {
-    	EmployeeAccountDetails employeeAccountDetails = new EmployeeAccountDetails();
+    	EmployeeAccountDetailsWindow employeeAccountDetailsWindow = new EmployeeAccountDetailsWindow();
 		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
 		Stage newStage = new Stage();
     	newStage.initModality(Modality.WINDOW_MODAL);
     	newStage.initOwner(stage);
-    	employeeAccountDetails.start(newStage);
+    	employeeAccountDetailsWindow.start(newStage);
         
     }
     
