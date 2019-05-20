@@ -14,13 +14,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class AddTableController {
+public class ModifyTableController {
 
     @FXML
     private Button cancelButton;
 
     @FXML
     private TextField maxcusnumberTField;
+    
+    @FXML
+    private TextField tablestatusTField;
 
     @FXML
     private Label idnumberLabel;
@@ -60,6 +63,10 @@ public class AddTableController {
     		tabletypeCBox.getItems().add(arr.get(i).getTableName());    	
     	}
     	
+    	ArrayList<Table> arr2 = TableData.getTableData();
+
+    	tabletypeCBox.getSelectionModel().select(arr2.get(Global.prevIndex).getTableTypeName());
+    	maxcusnumberTField.setText(String.valueOf(arr2.get(Global.prevIndex).getTableMaxCus()));
     	tabletypeCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
     		String tmp = "";
     		int i=-1;
@@ -72,8 +79,11 @@ public class AddTableController {
     		}
     	});
     	
+    	
 
-    	tableidTField.setText(String.valueOf(TableData.getNextTableID()));
+    	tableidTField.setText(String.valueOf(arr2.get(Global.prevIndex).getTableID()));
+    	tabledescTArea.setText(arr2.get(Global.prevIndex).getTableDesc());
+    	tablestatusTField.setText(arr2.get(Global.prevIndex).getTableStatus());
     }
     
     @FXML

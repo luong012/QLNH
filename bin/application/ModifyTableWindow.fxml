@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddTableController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ModifyTableController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
@@ -27,20 +27,23 @@
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="415.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="87.0" minHeight="7.0" prefHeight="41.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="126.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="126.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="249.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label fx:id="nameLabel" text="Mã bàn: " />
                         <Label fx:id="birthLabel" text="Loại bàn: (*)" GridPane.rowIndex="1" />
                         <Label fx:id="idnumberLabel" text="Số lượng khách tối đa: (*)" GridPane.rowIndex="2" />
-                        <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="3" />
-                        <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
-                        <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="4" />
+                        <TextField fx:id="tableidTField" disable="true" opacity="0.85" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
+                        <TextField fx:id="maxcusnumberTField" disable="true" opacity="0.85" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ComboBox fx:id="tabletypeCBox" prefHeight="30.0" prefWidth="439.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextArea fx:id="tabledescTArea" prefHeight="218.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextArea fx:id="tabledescTArea" prefHeight="218.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Trạng thái bàn: (*)" GridPane.rowIndex="3" />
+                        <TextField fx:id="tablestatusTField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </content>

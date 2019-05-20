@@ -5,9 +5,11 @@ import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class TableTypeController {
@@ -61,6 +63,9 @@ public class TableTypeController {
     
     @FXML
     void initialize() throws SQLException {
+    	
+    	addtabletypeidTField.setText(String.valueOf(TableTypeData.getNextTableTypeID()));
+    	
     	ArrayList<TableType> arr = TableTypeData.getTableTypeData();
     	for (int i=0;i<arr.size();i++) {
     		int tmp=arr.get(i).getTableID();
@@ -102,10 +107,22 @@ public class TableTypeController {
 		stage.close();
     }
     
-    public void confirmAdd(ActionEvent event) {
+    public void confirmAdd(ActionEvent event) throws SQLException {
+    	
+    	if (addtabletypemaxcusTField.getText().equals("") || addtabletypenameTField.getText().equals("")) {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Confirm Error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Required field cannot be left blank.");
+    	    alert.showAndWait();
+    	    return ;
+    	}
+    	
+    	
     	TableType tableType = new TableType();
     	tableType.setMaxCus(Integer.parseInt(addtabletypemaxcusTField.getText()));
-    	tableType.setTableName(add);
+    	tableType.setTableName(addtabletypenameTField.getText());
+    	TableTypeData.addTableData(tableType);
     	closeWindow();
     }
     
@@ -113,6 +130,15 @@ public class TableTypeController {
     	closeWindow();
     }
     public void confirmMod(ActionEvent event) {
+    	if (modtabletypemaxcusTField.getText().equals("") || modtabletypenameTField.getText().equals("")) {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Confirm Error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Required field cannot be left blank.");
+    	    alert.showAndWait();
+    	    return ;
+    	}
+    	
     	closeWindow();
     }
     
@@ -120,6 +146,15 @@ public class TableTypeController {
     	closeWindow();
     }
     public void confirmDel(ActionEvent event) {
+    	if (deltabletypemaxcusTField.getText().equals("") || deltabletypenameTField.getText().equals("")) {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Confirm Error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Required field cannot be left blank.");
+    	    alert.showAndWait();
+    	    return ;
+    	}
+    	
     	closeWindow();
     }
     

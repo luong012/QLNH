@@ -69,7 +69,7 @@
                   </Label>
                   <ComboBox fx:id="tablestatusCBox" prefHeight="25.0" prefWidth="403.0" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="tableidTField" prefHeight="25.0" prefWidth="326.0" GridPane.columnIndex="1" />
-                  <ComboBox fx:id="tabletypeCBox" editable="true" prefHeight="25.0" prefWidth="304.0" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="tabletypeCBox" prefHeight="25.0" prefWidth="304.0" GridPane.columnIndex="3" />
                   <TextField fx:id="cusnumTField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>

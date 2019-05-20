@@ -29,10 +29,10 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Mã loại bàn:" />
-                              <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
-                              <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
-                              <TextField fx:id="addtabletypeidTField" prefHeight="30.0" GridPane.columnIndex="1" />
+                              <Label text="Mã loại bàn: (*)" />
+                              <Label text="Tên loại bàn: (*)" GridPane.rowIndex="1" />
+                              <Label text="Số lượng khách tối đa: (*)" GridPane.rowIndex="2" />
+                              <TextField fx:id="addtabletypeidTField" disable="true" opacity="0.85" prefHeight="30.0" GridPane.columnIndex="1" />
                               <TextField fx:id="addtabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="addtabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
@@ -63,9 +63,9 @@
                      <content>
                         <GridPane prefHeight="372.0" prefWidth="578.0">
                            <children>
-                              <Label text="Mã loại bàn:" />
-                              <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
-                              <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                              <Label text="Mã loại bàn: (*)" />
+                              <Label text="Tên loại bàn: (*)" GridPane.rowIndex="1" />
+                              <Label text="Số lượng khách tối đa: (*)" GridPane.rowIndex="2" />
                               <ComboBox fx:id="modtableidCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
                               <TextField fx:id="modtabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="modtabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -109,12 +109,12 @@
                      <content>
                         <GridPane prefHeight="372.0" prefWidth="578.0">
                            <children>
-                              <Label text="Mã loại bàn:" />
+                              <Label text="Mã loại bàn: (*)" />
                               <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
                               <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
                               <ComboBox fx:id="deltableidCBox" prefHeight="30.0" prefWidth="412.0" GridPane.columnIndex="1" />
-                              <TextField fx:id="deltabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="deltabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="deltabletypenameTField" disable="true" opacity="0.85" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="deltabletypemaxcusTField" disable="true" opacity="0.85" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="168.0" />

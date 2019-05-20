@@ -23,8 +23,8 @@
                <content>
                   <GridPane prefHeight="414.0" prefWidth="578.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="134.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="424.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="143.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="415.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
@@ -33,9 +33,9 @@
                         <RowConstraints maxHeight="249.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="nameLabel" text="Mã bàn:" />
-                        <Label fx:id="birthLabel" text="Loại bàn:" GridPane.rowIndex="1" />
-                        <Label fx:id="idnumberLabel" text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
+                        <Label fx:id="nameLabel" text="Mã bàn: " />
+                        <Label fx:id="birthLabel" text="Loại bàn: (*)" GridPane.rowIndex="1" />
+                        <Label fx:id="idnumberLabel" text="Số lượng khách tối đa: (*)" GridPane.rowIndex="2" />
                         <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="3" />
                         <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
                         <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import oracle.jdbc.OracleTypes;
+
 public class TableData {
 	
 public static ArrayList<Table> getTableData() throws SQLException{
@@ -38,7 +40,7 @@ public static ArrayList<Table> getTableData() throws SQLException{
 //	          arr.add(t);
 //	          
 //	      }
-		String sql = "Select maban, tenlb, slkhachtoida, trangthaiban, motaban, ban.malb from ban, loaiban where ban.malb=loaiban.malb";
+		String sql = "Select maban, tenlb, slkhachtoida, trangthaiban, motaban, ban.malb from ban, loaiban where ban.malb=loaiban.malb order by maban asc";
 		
 		ResultSet rs = statement.executeQuery(sql);
 		
@@ -91,5 +93,45 @@ public static ArrayList<Table> getTableData() throws SQLException{
 		
 		return arr;
 	}
+	
+	
+	public static ArrayList<Table> searchTableData(int x, String y, String z, int t) throws SQLException{
+		String sql = "{call SP_TRACUU_BAN(?,?,?,?,?)}";
+
+		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
+			
+		cStmt.setInt(1, x);
+		cStmt.setString(2, y);
+		cStmt.setString(3, z);
+		cStmt.setInt(4, t);
+		cStmt.registerOutParameter(5, OracleTypes.CURSOR);
+		cStmt.executeUpdate();
+		
+		ArrayList<Table> arr = new ArrayList<Table>();
+
+		ResultSet rs = (ResultSet) cStmt.getObject(5);
+		
+		while (rs.next()) {
+			Table tb = new Table();
+		   	  
+			  int a = rs.getInt(1);
+			  String b = rs.getNString(2);
+			  int c = rs.getInt(3);
+			  String d = rs.getString(4);
+			  String e = rs.getNString(5);
+			  int f = rs.getInt(6);
+			  
+			  tb.setTableID(a);
+			  tb.setTableTypeName(b);
+			  tb.setTableMaxCus(c);
+			  tb.setTableStatus(d);
+			  tb.setTableDesc(e);
+			  tb.setTableTypeID(f);
+	          arr.add(tb);
+			
+		}			
+		
+		
+		return arr;	}
 
 }
