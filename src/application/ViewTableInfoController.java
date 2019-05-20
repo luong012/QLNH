@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -15,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ViewTableInfoController {
 
@@ -38,6 +40,9 @@ public class ViewTableInfoController {
 
     @FXML
     private Button findButton;
+    
+    @FXML
+    private Button refreshButton;
 
     @FXML
     private TextField cusnumTField;
@@ -66,6 +71,18 @@ public class ViewTableInfoController {
     @FXML
     private TableColumn<Table, String> tabledescColumn;
     
+    
+    public void updateTableView() throws SQLException {
+
+
+    	
+    	ArrayList<Table> arr = TableData.getTableData();
+
+    	
+    	ObservableList<Table> list = FXCollections.observableArrayList(arr);
+    	tableTView.setItems(list);
+    	
+    }
 
     @FXML
     void initialize() throws SQLException {
@@ -76,16 +93,21 @@ public class ViewTableInfoController {
     	tablestatusColumn.setCellValueFactory(new PropertyValueFactory<Table, Number>("tableStatus"));
     	tabledescColumn.setCellValueFactory(new PropertyValueFactory<Table, String>("tableDesc"));
 
-    	
-    	ArrayList<Table> arr = TableData.getTableData();
-//    	for (int i=0;i<arr.size();i++) {
-//    		Table tmp = arr.get(i);
-//    		tableTView.getItems().addAll("a","b","c","d","e");
-//    	}
-    	
-    	ObservableList<Table> list = FXCollections.observableArrayList(arr);
-    	tableTView.setItems(list);
+    	updateTableView();
     }
+    
+    @FXML
+    void refreshTable(ActionEvent event) {
+    	tableTView.getItems().clear();
+		try {
+			updateTableView();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
 
     @FXML
     void viewAddTableWindow(ActionEvent event) {
@@ -95,6 +117,10 @@ public class ViewTableInfoController {
     	newStage.initModality(Modality.WINDOW_MODAL);
     	newStage.initOwner(stage);
     	addTableWindow.start(newStage);   	
+    	newStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+    		public void handle(WindowEvent we) {
+    	    }
+    	});
 
     }
 
@@ -110,6 +136,12 @@ public class ViewTableInfoController {
 
     @FXML
     void viewTableTypeWindow(ActionEvent event) {
+    	TableTypeWindow tableTypeWindow = new TableTypeWindow();
+		Stage stage = (Stage) exitButton.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	tableTypeWindow.start(newStage);   	
 
     }
 

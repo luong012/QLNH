@@ -48,7 +48,7 @@ public class TableTypeController {
     private TextField deltabletypemaxcusTField;
 
     @FXML
-    private TextField addtabletypenameTFileld;
+    private TextField addtabletypenameTField;
 
     @FXML
     private TextField modtabletypenameTField;
@@ -103,6 +103,9 @@ public class TableTypeController {
     }
     
     public void confirmAdd(ActionEvent event) {
+    	TableType tableType = new TableType();
+    	tableType.setMaxCus(Integer.parseInt(addtabletypemaxcusTField.getText()));
+    	tableType.setTableName(add);
     	closeWindow();
     }
     

@@ -11,7 +11,7 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" text="Xác nhận" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" text="Xác nhận" />
             <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
          </children>
       </HBox>
@@ -37,16 +37,8 @@
                         <Label fx:id="birthLabel" text="Loại bàn:" GridPane.rowIndex="1" />
                         <Label fx:id="idnumberLabel" text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
                         <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="3" />
-                        <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
+                        <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
+                        <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <ComboBox fx:id="tabletypeCBox" prefHeight="30.0" prefWidth="439.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextArea fx:id="tabledescTArea" prefHeight="218.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>

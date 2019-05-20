@@ -33,7 +33,7 @@
                               <Label text="Tên loại bàn:" GridPane.rowIndex="1" />
                               <Label text="Số lượng khách tối đa:" GridPane.rowIndex="2" />
                               <TextField fx:id="addtabletypeidTField" prefHeight="30.0" GridPane.columnIndex="1" />
-                              <TextField fx:id="addtabletypenameTFileld" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="addtabletypenameTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField fx:id="addtabletypemaxcusTField" prefHeight="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>

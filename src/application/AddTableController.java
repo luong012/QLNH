@@ -1,5 +1,8 @@
 package application;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,7 +39,7 @@ public class AddTableController {
     private Button confirmButton;
 
     @FXML
-    private ComboBox<?> tabletypeCBox;
+    private ComboBox<String> tabletypeCBox;
 
     @FXML
     private Label nameLabel;
@@ -46,6 +49,51 @@ public class AddTableController {
     	Stage stage = (Stage) confirmButton.getScene().getWindow();
     	stage.close();
 
+    }
+    
+    @FXML
+    void initialize() throws SQLException {
+    	ArrayList<TableType> arr = TableTypeData.getTableTypeData();
+    	for (int i=0;i<arr.size();i++) {
+    		tabletypeCBox.getItems().add(arr.get(i).getTableName());    	
+    	}
+    	
+    	tabletypeCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+    		String tmp = "";
+    		int i=-1;
+    		while (!tmp.equals(newValue)&&i<arr.size()) {
+    			i++;
+    			tmp=String.valueOf(arr.get(i).getTableName());
+    		}
+    		if (i<arr.size() && i>-1) {
+    			maxcusnumberTField.setText(String.valueOf(arr.get(i).getMaxCus()));
+    		}
+    	});
+    	
+
+    	tableidTField.setText(String.valueOf(TableData.getNextTableID()));
+    }
+    
+    @FXML
+    void confirmAdd(ActionEvent event) throws SQLException {
+    	Table table = new Table();
+    	ArrayList<TableType> arr = TableTypeData.getTableTypeData();
+    	String string = tabletypeCBox.getSelectionModel().getSelectedItem();
+    	String tmp = "";
+		int i=-1;
+		while (!tmp.equals(string)&&i<arr.size()) {
+			i++;
+			tmp=String.valueOf(arr.get(i).getTableName());
+		}
+		if (i<arr.size() && i>-1) {
+			table.setTableTypeID(arr.get(i).getTableID());
+		}
+    	table.setTableDesc(tabledescTArea.getText());
+    	TableData.addTableData(table);
+    	Stage stage = (Stage) confirmButton.getScene().getWindow();
+    	stage.close();
+
+    	
     }
 
 }

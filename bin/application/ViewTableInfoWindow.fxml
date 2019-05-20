@@ -15,6 +15,7 @@
             <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModTableWindow" prefHeight="25.0" prefWidth="90.0" text="Sửa bàn" />
             <Button fx:id="delButton" mnemonicParsing="false" onAction="#viewDelTableWindow" prefHeight="25.0" prefWidth="90.0" text="Xoá bàn" />
             <Button fx:id="tabletypemanButton" mnemonicParsing="false" onAction="#viewTableTypeWindow" prefHeight="25.0" prefWidth="90.0" text="Quản lí" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshTable" prefHeight="25.0" prefWidth="90.0" text="Cập nhật" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />

@@ -7,6 +7,8 @@ public class Table {
 	private int tableMaxCus;
 	private String tableStatus;
 	private String tableDesc;
+	private int tableTypeID;
+	
 	public int getTableID() {
 		return tableID;
 	}
@@ -66,6 +68,12 @@ public class Table {
 	}
 	public void setTableMaxCus(int tableMaxCus) {
 		this.tableMaxCus = tableMaxCus;
+	}
+	public int getTableTypeID() {
+		return tableTypeID;
+	}
+	public void setTableTypeID(int tableTypeID) {
+		this.tableTypeID = tableTypeID;
 	}
 
 
