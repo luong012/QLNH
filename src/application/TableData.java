@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import oracle.jdbc.OracleTypes;
@@ -100,12 +101,25 @@ public static ArrayList<Table> getTableData() throws SQLException{
 
 		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
 			
-		cStmt.setInt(1, x);
-		cStmt.setString(2, y);
-		cStmt.setString(3, z);
-		cStmt.setInt(4, t);
+		if (x<0)
+			cStmt.setString(1, null);
+		else
+			cStmt.setInt(1, x);
+		cStmt.setNString(2, y);
+		cStmt.setNString(3, z);
+    	System.out.println(y);
+    	System.out.println(z);
+		if (t<0)
+			cStmt.setString(4, null);
+		else
+			cStmt.setInt(4, t);
 		cStmt.registerOutParameter(5, OracleTypes.CURSOR);
 		cStmt.executeUpdate();
+		
+		cStmt.registerOutParameter(3, Types.NVARCHAR);
+		
+		String tmp = cStmt.getNString(3);
+		System.out.println(tmp);
 		
 		ArrayList<Table> arr = new ArrayList<Table>();
 
@@ -121,6 +135,14 @@ public static ArrayList<Table> getTableData() throws SQLException{
 			  String e = rs.getNString(5);
 			  int f = rs.getInt(6);
 			  
+			  System.out.println(a);
+		    	System.out.println(b);
+		    	System.out.println(c);
+		    	System.out.println(d);
+		    	System.out.println(e);
+		    	System.out.println(f);
+		    	System.out.println("----------------------");
+			  
 			  tb.setTableID(a);
 			  tb.setTableTypeName(b);
 			  tb.setTableMaxCus(c);
@@ -130,7 +152,8 @@ public static ArrayList<Table> getTableData() throws SQLException{
 	          arr.add(tb);
 			
 		}			
-		
+    	System.out.println("-------------------------------------------");
+
 		
 		return arr;	}
 

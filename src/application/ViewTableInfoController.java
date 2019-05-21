@@ -98,10 +98,13 @@ public class ViewTableInfoController {
     	updateTableView();
     	
     	ArrayList<TableType> arr = TableTypeData.getTableTypeData();
+    	tabletypeCBox.getItems().add("All");
+    	tabletypeCBox.getSelectionModel().select(0);
     	for (int i=0;i<arr.size();i++) {
     		tabletypeCBox.getItems().add(arr.get(i).getTableName());    	
     	}
-    	tablestatusCBox.getItems().addAll("0","1");
+    	tablestatusCBox.getItems().addAll("All","0","1");
+    	tablestatusCBox.getSelectionModel().select(0);
     	
     }
     
@@ -172,8 +175,24 @@ public class ViewTableInfoController {
     }
 
     @FXML
-    void findResult(ActionEvent event) {
-    	int a
+    void findResult(ActionEvent event) throws SQLException {
+		int a = -1;
+    	if (!tableidTField.getText().equals("")) a = Integer.parseInt(tableidTField.getText());
+    	String b = tabletypeCBox.getSelectionModel().getSelectedItem();
+    	if (b.equals("All")) b=null;
+    	String c = tablestatusCBox.getSelectionModel().getSelectedItem();
+    	if (c.equals("All")) c=null;
+
+		int d = -1;
+    	if (!cusnumTField.getText().equals("")) d= Integer.parseInt(cusnumTField.getText());
+//    	System.out.println(a);
+//    	System.out.println(b);
+//    	System.out.println(c);
+//    	System.out.println(d);
+    	ArrayList<Table> arr = TableData.searchTableData(a, b, c, d);
+    	
+    	ObservableList<Table> list = FXCollections.observableArrayList(arr);
+    	tableTView.setItems(list);
     	
 
     }
