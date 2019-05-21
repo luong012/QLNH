@@ -40,7 +40,7 @@ public class InitForm extends Application {
 			
 			initDatabase();
 			
-			PauseTransition delay = new PauseTransition(Duration.seconds(3));
+			PauseTransition delay = new PauseTransition(Duration.seconds(0));
 			delay.setOnFinished( event -> {
 				primaryStage.close();
 				LoginWindow loginWindow = new LoginWindow();

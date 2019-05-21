@@ -97,7 +97,7 @@ public static ArrayList<Table> getTableData() throws SQLException{
 	
 	
 	public static ArrayList<Table> searchTableData(int x, String y, String z, int t) throws SQLException{
-		String sql = "{call SP_TRACUU_BAN(?,?,?,?,?)}";
+		String sql = "begin SP_TRACUU_BAN(?,?,?,?,?); end;";
 
 		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
 			
@@ -105,10 +105,8 @@ public static ArrayList<Table> getTableData() throws SQLException{
 			cStmt.setString(1, null);
 		else
 			cStmt.setInt(1, x);
-		cStmt.setNString(2, y);
-		cStmt.setNString(3, z);
-    	System.out.println(y);
-    	System.out.println(z);
+		cStmt.setString(2, z);
+		cStmt.setString(3, y);
 		if (t<0)
 			cStmt.setString(4, null);
 		else
@@ -116,10 +114,11 @@ public static ArrayList<Table> getTableData() throws SQLException{
 		cStmt.registerOutParameter(5, OracleTypes.CURSOR);
 		cStmt.executeUpdate();
 		
-		cStmt.registerOutParameter(3, Types.NVARCHAR);
+		cStmt.registerOutParameter(3, Types.VARCHAR);
 		
-		String tmp = cStmt.getNString(3);
+		String tmp = cStmt.getString(3);
 		System.out.println(tmp);
+		System.out.println('-');
 		
 		ArrayList<Table> arr = new ArrayList<Table>();
 
@@ -135,13 +134,7 @@ public static ArrayList<Table> getTableData() throws SQLException{
 			  String e = rs.getNString(5);
 			  int f = rs.getInt(6);
 			  
-			  System.out.println(a);
-		    	System.out.println(b);
-		    	System.out.println(c);
-		    	System.out.println(d);
-		    	System.out.println(e);
-		    	System.out.println(f);
-		    	System.out.println("----------------------");
+			 
 			  
 			  tb.setTableID(a);
 			  tb.setTableTypeName(b);
@@ -152,7 +145,6 @@ public static ArrayList<Table> getTableData() throws SQLException{
 	          arr.add(tb);
 			
 		}			
-    	System.out.println("-------------------------------------------");
 
 		
 		return arr;	}

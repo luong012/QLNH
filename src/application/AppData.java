@@ -21,7 +21,6 @@ public class AppData {
 		cStmt.execute();
 		
 		int outputRole = cStmt.getInt(3);
-		
 		return outputRole;
 	}
 
