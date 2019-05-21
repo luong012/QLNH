@@ -219,4 +219,25 @@ public class MainController {
     	addTableWindow.start(newStage);   
     }
     
+    public void resourceInfo(ActionEvent event) {
+    	ResourceInfoWindow resourceInfoWindow = new ResourceInfoWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	resourceInfoWindow.start(newStage);   
+    }
+    
+    @FXML
+    void viewAddResourceWindow(ActionEvent event) {
+    	
+    	AddResourceWindow addResourceWindow = new AddResourceWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	addResourceWindow.start(newStage);  
+
+    }
+    
 }

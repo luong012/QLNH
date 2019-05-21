@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ResourceInfoController">
+   <right>
+      <VBox prefHeight="390.0" prefWidth="123.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="addtableButton" mnemonicParsing="false" onAction="#viewAddResourceWindow" prefHeight="25.0" prefWidth="293.0" text="Thêm nguyên liệu">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Button>
+            <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModResourceWindow" prefHeight="25.0" prefWidth="328.0" text="Sửa nguyên liệu">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Button>
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshResource" prefHeight="25.0" prefWidth="248.0" text="Cập nhật" />
+         </children>
+         <BorderPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <top>
+      <TitledPane animated="false" collapsible="false" text="Thông tin tra cứu" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <content>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="86.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Tên nguyên liệu:">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="resourceidTField" onAction="#findResult" GridPane.columnIndex="1" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResult" prefHeight="25.0" prefWidth="90.0" text="Tìm kiếm" />
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="90.0" text="Thoát" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </content>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TitledPane>
+   </top>
+   <center>
+      <TableView fx:id="resourceTView" editable="true" prefHeight="380.0" prefWidth="798.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="resourceidColumn" prefWidth="88.0" text="Mã nguyên liệu" />
+          <TableColumn fx:id="resourcenameColumn" prefWidth="96.8399658203125" text="Tên nguyên liệu" />
+            <TableColumn fx:id="resourceunitColumn" prefWidth="152.39208984375" text="Đơn vị" />
+            <TableColumn fx:id="resourceunitpriceColumn" prefWidth="133.193603515625" text="Đơn giá" />
+            <TableColumn fx:id="resourcequantityleftcolumn" prefWidth="350.199951171875" text="Số lượng tồn kho" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>

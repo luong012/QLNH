@@ -63,8 +63,7 @@ public class ModifyTableController {
     		tabletypeCBox.getItems().add(arr.get(i).getTableName());    	
     	}
     	
-    	ArrayList<Table> arr2 = TableData.getTableData();
-
+    	ArrayList<Table> arr2 = new ArrayList<Table>(ViewTableInfoController.tableList);
     	tabletypeCBox.getSelectionModel().select(arr2.get(Global.prevIndex).getTableTypeName());
     	maxcusnumberTField.setText(String.valueOf(arr2.get(Global.prevIndex).getTableMaxCus()));
     	tabletypeCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {

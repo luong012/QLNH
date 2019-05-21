@@ -4,68 +4,67 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Types;
 import java.util.ArrayList;
 
 import oracle.jdbc.OracleTypes;
 
 public class TableData {
 	
-public static ArrayList<Table> getTableData() throws SQLException{
-		
-		Statement statement = InitForm.connection.createStatement();
-		ArrayList<Table> arr = new ArrayList<Table>();
-		
-//		String sql = "Select maban, ban.malb, trangthaiban, motaban, tenlb, slkhachtoida from ban, loaiban where ban.malb=loaiban.malb";
+//public static ArrayList<Table> getTableData() throws SQLException{
+//		
+//		Statement statement = InitForm.connection.createStatement();
+//		ArrayList<Table> arr = new ArrayList<Table>();
+//		
+////		String sql = "Select maban, ban.malb, trangthaiban, motaban, tenlb, slkhachtoida from ban, loaiban where ban.malb=loaiban.malb";
+////		
+////		ResultSet rs = statement.executeQuery(sql);
+////		
+////		while (rs.next()) {
+////			  Table t = new Table();
+////		   	  TableType tt = new TableType();	   
+////	          int a = rs.getInt(1);
+////	          int b = rs.getInt(2);
+////	          String c = rs.getString(3);
+////	          String d = rs.getNString(4);
+////	          String e = rs.getNString(5);
+////	          int f = rs.getInt(6);
+////	          
+////	          tt.setTableID(b);
+////	          tt.setTableName(e);
+////	          tt.setMaxCus(f);
+////	          
+////	          t.setTableID(a);
+////	          t.setTableType(tt);
+////	          t.setTableDesc(d);
+////	          t.setTableStatus(c);
+////	          arr.add(t);
+////	          
+////	      }
+//		String sql = "Select maban, tenlb, slkhachtoida, trangthaiban, motaban, ban.malb from ban, loaiban where ban.malb=loaiban.malb order by maban asc";
 //		
 //		ResultSet rs = statement.executeQuery(sql);
 //		
 //		while (rs.next()) {
 //			  Table t = new Table();
-//		   	  TableType tt = new TableType();	   
-//	          int a = rs.getInt(1);
-//	          int b = rs.getInt(2);
-//	          String c = rs.getString(3);
-//	          String d = rs.getNString(4);
-//	          String e = rs.getNString(5);
-//	          int f = rs.getInt(6);
+//		   	  
+//			  int a = rs.getInt(1);
+//			  String b = rs.getNString(2);
+//			  int c = rs.getInt(3);
+//			  String d = rs.getString(4);
+//			  String e = rs.getNString(5);
+//			  int f = rs.getInt(6);
 //	          
-//	          tt.setTableID(b);
-//	          tt.setTableName(e);
-//	          tt.setMaxCus(f);
-//	          
-//	          t.setTableID(a);
-//	          t.setTableType(tt);
-//	          t.setTableDesc(d);
-//	          t.setTableStatus(c);
+//			  
+//			  t.setTableID(a);
+//			  t.setTableTypeName(b);
+//			  t.setTableMaxCus(c);
+//			  t.setTableStatus(d);
+//			  t.setTableDesc(e);
+//			  t.setTableTypeID(f);
 //	          arr.add(t);
-//	          
-//	      }
-		String sql = "Select maban, tenlb, slkhachtoida, trangthaiban, motaban, ban.malb from ban, loaiban where ban.malb=loaiban.malb order by maban asc";
-		
-		ResultSet rs = statement.executeQuery(sql);
-		
-		while (rs.next()) {
-			  Table t = new Table();
-		   	  
-			  int a = rs.getInt(1);
-			  String b = rs.getNString(2);
-			  int c = rs.getInt(3);
-			  String d = rs.getString(4);
-			  String e = rs.getNString(5);
-			  int f = rs.getInt(6);
-	          
-			  
-			  t.setTableID(a);
-			  t.setTableTypeName(b);
-			  t.setTableMaxCus(c);
-			  t.setTableStatus(d);
-			  t.setTableDesc(e);
-			  t.setTableTypeID(f);
-	          arr.add(t);
-		}
-		return arr;
-	}
+//		}
+//		return arr;
+//	}
 
 	public static int getNextTableID() throws SQLException {
 		
@@ -90,7 +89,7 @@ public static ArrayList<Table> getTableData() throws SQLException{
 		cStmt.setString(2, a.getTableDesc());
 		cStmt.execute();
 		
-		ArrayList<Table> arr = TableData.getTableData();
+		ArrayList<Table> arr = TableData.searchTableData(-1,null,null,-1);
 		
 		return arr;
 	}
@@ -105,20 +104,14 @@ public static ArrayList<Table> getTableData() throws SQLException{
 			cStmt.setString(1, null);
 		else
 			cStmt.setInt(1, x);
-		cStmt.setString(2, z);
-		cStmt.setString(3, y);
+		cStmt.setNString(2, z);
+		cStmt.setNString(3, y);
 		if (t<0)
 			cStmt.setString(4, null);
 		else
 			cStmt.setInt(4, t);
 		cStmt.registerOutParameter(5, OracleTypes.CURSOR);
 		cStmt.executeUpdate();
-		
-		cStmt.registerOutParameter(3, Types.VARCHAR);
-		
-		String tmp = cStmt.getString(3);
-		System.out.println(tmp);
-		System.out.println('-');
 		
 		ArrayList<Table> arr = new ArrayList<Table>();
 

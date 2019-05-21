@@ -73,16 +73,18 @@ public class ViewTableInfoController {
     @FXML
     private TableColumn<Table, String> tabledescColumn;
     
+    static ObservableList<Table> tableList;
+    
     
     public void updateTableView() throws SQLException {
 
 
     	
-    	ArrayList<Table> arr = TableData.getTableData();
+    	ArrayList<Table> arr = TableData.searchTableData(-1,null,null,-1);
 
     	
-    	ObservableList<Table> list = FXCollections.observableArrayList(arr);
-    	tableTView.setItems(list);
+    	tableList = FXCollections.observableArrayList(arr);
+    	tableTView.setItems(tableList);
     	
     }
 
@@ -185,14 +187,10 @@ public class ViewTableInfoController {
 
 		int d = -1;
     	if (!cusnumTField.getText().equals("")) d= Integer.parseInt(cusnumTField.getText());
-//    	System.out.println(a);
-//    	System.out.println(b);
-//    	System.out.println(c);
-//    	System.out.println(d);
     	ArrayList<Table> arr = TableData.searchTableData(a, b, c, d);
-    	
-    	ObservableList<Table> list = FXCollections.observableArrayList(arr);
-    	tableTView.setItems(list);
+
+    	tableList = FXCollections.observableArrayList(arr);
+    	tableTView.setItems(tableList);
     	
 
     }

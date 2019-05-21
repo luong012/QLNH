@@ -58,10 +58,10 @@
                     </items>
                   </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="resourceinfoItem" mnemonicParsing="false" text="Resource Info" />
+                  <MenuItem fx:id="resourceinfoItem" mnemonicParsing="false" onAction="#resourceInfo" text="Resource Info" />
                   <Menu fx:id="resourcemanMenu" mnemonicParsing="false" text="Resource Management">
                     <items>
-                      <MenuItem fx:id="addresourceItem" mnemonicParsing="false" text="Add" />
+                      <MenuItem fx:id="addresourceItem" mnemonicParsing="false" onAction="#viewAddResourceWindow" text="Add" />
                         <MenuItem fx:id="modifyresourceItem" mnemonicParsing="false" text="Modify" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem fx:id="resourceoptionItem" mnemonicParsing="false" text="Option" />

@@ -98,13 +98,8 @@ public class AddTableController {
 			tmp=String.valueOf(arr.get(i).getTableName());
 		}
 		if (i<arr.size() && i>-1) {
+			maxcusnumberTField.setText(String.valueOf(arr.get(i).getMaxCus()));
 			table.setTableTypeID(arr.get(i).getTableID());
-			Alert alert = new Alert(AlertType.ERROR);
-    		alert.setTitle("Confirm Error");
-    		alert.setHeaderText(null);
-    		alert.setContentText("Required field cannot be left blank.");
-    	    alert.showAndWait();
-    	    return ;
 		}
     	table.setTableDesc(tabledescTArea.getText());
     	TableData.addTableData(table);
