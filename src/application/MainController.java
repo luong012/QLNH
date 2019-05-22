@@ -160,6 +160,13 @@ public class MainController {
 
     @FXML
     private Menu customerMenu;
+    
+    @FXML
+    private MenuItem addorderItem;
+    
+    @FXML
+    private MenuItem orderinfoItem;
+
 
     public void closeMainWindow(ActionEvent event) {
     	Platform.exit();
@@ -239,5 +246,30 @@ public class MainController {
     	addResourceWindow.start(newStage);  
 
     }
+    
+    @FXML
+    void viewOrderInfoWindow(ActionEvent event) {
+    	
+    	OrderDetailInfoWindow orderDetailInfoWindow = new OrderDetailInfoWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	orderDetailInfoWindow.start(newStage);  
+
+    }
+
+    @FXML
+    void addOrder(ActionEvent event) {
+    	
+    	AddOrderWindow addOrderWindow = new AddOrderWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	addOrderWindow.start(newStage);   	    	
+
+    }
+
     
 }

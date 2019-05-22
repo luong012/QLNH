@@ -67,6 +67,8 @@
                         <MenuItem fx:id="resourceoptionItem" mnemonicParsing="false" text="Option" />
                     </items>
                   </Menu>
+                  <MenuItem fx:id="orderinfoItem" mnemonicParsing="false" onAction="#viewOrderInfoWindow" text="Order Info" />
+                  <MenuItem fx:id="addorderItem" mnemonicParsing="false" onAction="#addOrder" text="Add Order" />
                </items>
             </Menu>
             <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">

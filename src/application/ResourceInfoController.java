@@ -112,12 +112,16 @@ public class ResourceInfoController {
 
     	ArrayList<Resource> arr = ResourceData.searchResourceData(resourceidTField.getText());
 
+    	
     	resourceList = FXCollections.observableArrayList(arr);
     	resourceTView.setItems(resourceList);
     }
 
     @FXML
     void closeWindow(ActionEvent event) {
+    	
+    	Stage stage = (Stage) findButton.getScene().getWindow();
+    	stage.close();
 
     }
 

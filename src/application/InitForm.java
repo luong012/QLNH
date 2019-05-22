@@ -43,8 +43,8 @@ public class InitForm extends Application {
 			PauseTransition delay = new PauseTransition(Duration.seconds(0));
 			delay.setOnFinished( event -> {
 				primaryStage.close();
-				LoginWindow loginWindow = new LoginWindow();
-				loginWindow.start(primaryStage);
+				MainWindow mainWindow = new MainWindow();
+				mainWindow.start(primaryStage);
 				}
 			);
 			delay.play();			
