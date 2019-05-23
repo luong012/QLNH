@@ -3,7 +3,6 @@ package application;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,6 +69,9 @@ public class AddOrderController {
 
     @FXML
     private TableColumn<OrderResource, String> orderresourcenameColumn;
+    
+    @FXML
+    private Button autocostnumberButton;
 
     @FXML
     private TextField costTField;
@@ -119,6 +121,8 @@ public class AddOrderController {
     @FXML
     void initialize() throws SQLException {
     	
+    	orderResourceArrList.removeAll(orderResourceArrList);
+    	
     	resourcenameColumn.setCellValueFactory(new PropertyValueFactory<Resource, String>("resourceName"));
     	resourceunitColumn.setCellValueFactory(new PropertyValueFactory<Resource, String>("resourceUnit"));
     	resourceunitpriceColumn.setCellValueFactory(new PropertyValueFactory<Resource, Number>("resourceUnitPrice"));
@@ -166,7 +170,7 @@ public class AddOrderController {
     	for (int i1=0;i1<orderResourceArrList.size();i1++) 
     		if (resource.getResourceID()==orderResourceArrList.get(i1).getOrderResourceID()) {
     			orderResourceArrList.get(i1).setOrderResourceQuantity(orderResourceArrList.get(i1).getOrderResourceQuantity()+Integer.parseInt(quantityTField.getText()));
-    	    	quantityTField.setText(null);
+    	    	quantityTField.setText("");
     	    	orderResourceArrList.get(i1).setOrderResourcePrice(orderResourceArrList.get(i1).getOrderResourceQuantity()*orderResourceArrList.get(i1).getOrderResourceUnitPrice());
     	    	updateOrderTView();
     	    	return;
@@ -175,7 +179,7 @@ public class AddOrderController {
 	    orderResource.setOrderResourceID(resource.getResourceID());
 	    orderResource.setOrderResourceName(resource.getResourceName());
 	    orderResource.setOrderResourceQuantity(Integer.parseInt(quantityTField.getText()));
-	    quantityTField.setText(null);
+	    quantityTField.setText("");
 	    orderResource.setOrderResourceUnit(resource.getResourceUnit());
 	    orderResource.setOrderResourceUnitPrice(resource.getResourceUnitPrice());
 	   	orderResource.setOrderResourcePrice(orderResource.getOrderResourceQuantity()*orderResource.getOrderResourceUnitPrice());
@@ -211,9 +215,21 @@ public class AddOrderController {
     	updateOrderTView();
 
     }
+    
+    @FXML
+    void setCostTFValue(ActionEvent event) {
+    	
+    	if (!estimatedcostTField.getText().isEmpty()) {
+    		costTField.setText(estimatedcostTField.getText());
+    	}
+
+    }
+
 
     @FXML
     void closeWindow(ActionEvent event) {
+    	
+    	
     	
     	Stage stage = (Stage) closeButton.getScene().getWindow();
     	stage.close();
@@ -221,9 +237,28 @@ public class AddOrderController {
     }
 
     @FXML
-    void confirmOrder(ActionEvent event) {
+    void confirmOrder(ActionEvent event) throws SQLException {
     	
+    	if(costTField.getText().equals("") || costTField.getText().isEmpty() ) {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Add Resource Error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Required field cannot be left blank.");
+    	    alert.showAndWait();
+    	    return;
+    	}    	
     	
+    	OrderDetail orderDetail = new OrderDetail();
+    	
+    	orderDetail.setOrderDetailDate(orderdateDPicker.getValue());
+    	orderDetail.setOrderDetailCost(Float.parseFloat(costTField.getText()));
+    	orderDetail.setOrderResourceList(orderResourceArrList);
+    	
+    	OrderDetailData.addOrderDetailData(orderDetail);
+    	
+    	Stage stage = (Stage) closeButton.getScene().getWindow();
+    	stage.close();
+
 
     }
 

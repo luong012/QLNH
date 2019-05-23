@@ -1,26 +1,21 @@
 package application;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class OrderDetail {
 	
 	private int orderDetailID;
-	private Date orderDetailDate;
+	private LocalDate orderDetailDate;
 	private float orderDetailEstimatedCost;
 	private float orderDetailCost;
 	private ArrayList<OrderResource> orderResourceList;
+	private int orderNumberOfResource;
 	public int getOrderDetailID() {
 		return orderDetailID;
 	}
 	public void setOrderDetailID(int orderDetailID) {
 		this.orderDetailID = orderDetailID;
-	}
-	public Date getOrderDetailDate() {
-		return orderDetailDate;
-	}
-	public void setOrderDetailDate(Date orderDetailDate) {
-		this.orderDetailDate = orderDetailDate;
 	}
 	public float getOrderDetailEstimatedCost() {
 		return orderDetailEstimatedCost;
@@ -39,6 +34,18 @@ public class OrderDetail {
 	}
 	public void setOrderResourceList(ArrayList<OrderResource> orderResourceList) {
 		this.orderResourceList = orderResourceList;
+	}
+	public int getOrderNumberOfResource() {
+		return orderNumberOfResource;
+	}
+	public void setOrderNumberOfResource(int orderNumberOfResource) {
+		this.orderNumberOfResource = orderNumberOfResource;
+	}
+	public LocalDate getOrderDetailDate() {
+		return orderDetailDate;
+	}
+	public void setOrderDetailDate(LocalDate orderDetailDate) {
+		this.orderDetailDate = orderDetailDate;
 	}
 	
 

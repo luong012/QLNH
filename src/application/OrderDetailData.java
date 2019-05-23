@@ -1,70 +1,119 @@
 package application;
 
 import java.sql.CallableStatement;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import oracle.jdbc.OracleTypes;
 
 public class OrderDetailData {
 	
-	public static ArrayList<Table> getOrderDetailData() throws SQLException{
+	public static ArrayList<OrderDetail> searchOrderDetailData(int x, LocalDate date) throws SQLException{
 		
-		Statement statement = InitForm.connection.createStatement();
+
 		ArrayList<OrderDetail> arr = new ArrayList<OrderDetail>();
-		
-		String sql = "Select maban, tenlb, slkhachtoida, trangthaiban, motaban, ban.malb from ban, loaiban where ban.malb=loaiban.malb order by maban asc";
-		
-		ResultSet rs = statement.executeQuery(sql);
-		
-		while (rs.next()) {
-			  Table t = new Table();
-		   	  
-			  int a = rs.getInt(1);
-			  String b = rs.getNString(2);
-			  int c = rs.getInt(3);
-			  String d = rs.getString(4);
-			  String e = rs.getNString(5);
-			  int f = rs.getInt(6);
-	          
-			  
-			  t.setTableID(a);
-			  t.setTableTypeName(b);
-			  t.setTableMaxCus(c);
-			  t.setTableStatus(d);
-			  t.setTableDesc(e);
-			  t.setTableTypeID(f);
-	          arr.add(t);
-		}
+		String sql = "begin SP_TRACUU_PN(?,?,?); end;";
+
+		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
+		try {
+			if (x==-1)
+				cStmt.setString(1, null);
+			else
+				cStmt.setInt(1, x);
+			if (date==null) cStmt.setDate(2, null);
+			else
+				cStmt.setDate(2, Date.valueOf(date));
+			cStmt.registerOutParameter(3, OracleTypes.CURSOR);
+			
+			cStmt.executeUpdate();
+					
+			ResultSet rs = (ResultSet) cStmt.getObject(3);
+			try {				
+				while (rs.next()) {
+					OrderDetail t = new OrderDetail();
+				   	  
+					int a = rs.getInt(1);
+					LocalDate b = rs.getDate(2).toLocalDate();
+					float d = rs.getFloat(3);
+					ArrayList<OrderResource> e = OrderResourceData.getOrderResource(a);
+					int f = e.size();
+					
+					float c = 0;
+			  		for (int i=0; i <e.size();i++) {
+			  			c+=e.get(i).getOrderResourcePrice();
+			  		}
+			          
+					  
+					t.setOrderDetailID(a);
+					t.setOrderDetailDate(b);
+					t.setOrderDetailEstimatedCost(c);
+					t.setOrderDetailCost(d);
+					t.setOrderResourceList(e);
+					t.setOrderNumberOfResource(f);
+			        arr.add(t);
+				}
+			} finally {
+				try {
+					rs.close();} catch (Exception ignore) {}
+				}
+		} finally {
+			try {
+				cStmt.close();} catch (Exception ignore) {}
+			}
 		return arr;
 
 }
 	
 	public static int getNextOrderDetailID() throws SQLException {
 		
-		Statement statement = InitForm.connection.createStatement();
-
-		String sql = "select last_number from user_sequences  where sequence_name = 'MAPN_SEQ'";
-		ResultSet rs = statement.executeQuery(sql);
-		
 		int a=-1;
-		while(rs.next()) {
-			a=rs.getInt(1);
-		}
+		Statement statement = InitForm.connection.createStatement();
+		try {
+			
+	
+			String sql = "select last_number from user_sequences  where sequence_name = 'MAPN_SEQ'";
+			ResultSet rs = statement.executeQuery(sql);
+			try {
+				
+				while(rs.next()) {
+					a=rs.getInt(1);
+				}
+			} finally {
+				try {
+					rs.close();} catch (Exception ignore) {}
+				}
+		} finally {
+			try {
+				statement.close();} catch (Exception ignore) {}
+			}
 		return a;
 	}
 	
-	public static ArrayList<Resource> addResourceData(Resource a) throws SQLException{
-		String sql = "{call SP_THEM_PN(?,?,?)}";
+	
+	public static ArrayList<OrderDetail> addOrderDetailData(OrderDetail orderDetail) throws SQLException{
+		String sql = "{call SP_THEM_PN(?,?)}";
 
 		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
-			
-		cStmt.setNString(1, a.getResourceName());
-		cStmt.setNString(2, a.getResourceUnit());
-		cStmt.setFloat(3, a.getResourceUnitPrice());
-		cStmt.execute();
+		try {
+							
+			Date date = Date.valueOf(orderDetail.getOrderDetailDate());
+			cStmt.setDate(1, date);
+			cStmt.setFloat(2, orderDetail.getOrderDetailCost());
+			cStmt.execute();
+		} finally {
+			try {
+				cStmt.close();} catch (Exception ignore) {}
+			}
 		
-		ArrayList<Resource> arr = ResourceData.getResourceData();
+		for (int i=0; i<orderDetail.getOrderResourceList().size(); i++) {
+			OrderResourceData.addOrderResourceData(orderDetail.getOrderResourceList().get(i));
+		}
+		
+		ArrayList<OrderDetail> arr = OrderDetailData.searchOrderDetailData(-1, null);
 		
 		return arr;
 	}

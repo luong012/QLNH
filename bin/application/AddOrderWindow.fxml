@@ -76,12 +76,12 @@
                           </rowConstraints>
                            <children>
                               <Label text="Số lượng: (*)" />
+                              <TextField fx:id="quantityTField" onAction="#addResource" GridPane.columnIndex="1" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
                                     <Button fx:id="addorderButton" mnemonicParsing="false" onAction="#addResource" prefHeight="25.0" prefWidth="74.0" text="Thêm" />
                                  </children>
                               </HBox>
-                              <TextField fx:id="quantityTField" onAction="#addResource" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                      </bottom>
@@ -127,17 +127,18 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
+                                    <Label text="Tổng chi phí:" />
+                                    <Label text="Tổng tiền nhập: (*)" GridPane.rowIndex="1" />
+                                    <TextField fx:id="estimatedcostTField" disable="true" opacity="0.85" GridPane.columnIndex="1" />
+                                    <TextField fx:id="costTField" onAction="#confirmOrder" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                        <children>
+                                          <Button fx:id="autocostnumberButton" mnemonicParsing="false" onAction="#setCostTFValue" prefHeight="25.0" prefWidth="103.0" text="Lấy tổng chi phí" />
                                           <Button fx:id="delorderButton" mnemonicParsing="false" onAction="#delOrder" prefHeight="25.0" prefWidth="73.0" text="Xoá" />
                                           <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmOrder" prefHeight="25.0" prefWidth="73.0" text="Xác nhận" />
                                           <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="73.0" text="Đóng" />
                                        </children>
                                     </HBox>
-                                    <Label text="Tổng chi phí:" />
-                                    <Label text="Tổng tiền nhập: (*)" GridPane.rowIndex="1" />
-                                    <TextField fx:id="estimatedcostTField" disable="true" opacity="0.85" GridPane.columnIndex="1" />
-                                    <TextField fx:id="costTField" onAction="#confirmOrder" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                                  <HBox.margin>
                                     <Insets right="-10.0" />
