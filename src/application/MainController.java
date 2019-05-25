@@ -166,6 +166,9 @@ public class MainController {
     
     @FXML
     private MenuItem orderinfoItem;
+    
+    @FXML
+    private MenuItem menutypemanItem;
 
 
     public void closeMainWindow(ActionEvent event) {
@@ -268,6 +271,27 @@ public class MainController {
     	newStage.initModality(Modality.WINDOW_MODAL);
     	newStage.initOwner(stage);
     	addOrderWindow.start(newStage);   	    	
+
+    }
+    
+    public void viewMenuTypeManagement(ActionEvent event) {
+    	MenuTypeWindow menuTypeWindow = new MenuTypeWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	menuTypeWindow.start(newStage);
+    }
+    
+    @FXML
+    void viewMenuInfoWindow(ActionEvent event) {
+    	
+    	MenuInfoWindow menuInfoWindow = new MenuInfoWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	menuInfoWindow.start(newStage);   	    	
 
     }
 

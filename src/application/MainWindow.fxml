@@ -47,16 +47,8 @@
                     </items>
                   </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem fx:id="menuinfoItem" mnemonicParsing="false" text="Menu Info" />
-                  <Menu fx:id="menumanMenu" mnemonicParsing="false" text="Menu Management">
-                    <items>
-                      <MenuItem fx:id="addmenuItem" mnemonicParsing="false" text="Add" />
-                        <MenuItem fx:id="modifymenuItem" mnemonicParsing="false" text="Modify" />
-                        <MenuItem fx:id="deletemenuItem" mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem fx:id="menuoptionItem" mnemonicParsing="false" text="Option" />
-                    </items>
-                  </Menu>
+                  <MenuItem fx:id="menuinfoItem" mnemonicParsing="false" onAction="#viewMenuInfoWindow" text="Menu Info" />
+                  <MenuItem fx:id="menutypemanItem" mnemonicParsing="false" onAction="#viewMenuTypeManagement" text="Menu Type Management" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="resourceinfoItem" mnemonicParsing="false" onAction="#resourceInfo" text="Resource Info" />
                   <Menu fx:id="resourcemanMenu" mnemonicParsing="false" text="Resource Management">

@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 import oracle.jdbc.OracleTypes;
 
-public class OrderResourceData {
-
-	public static void addOrderResourceData(OrderResource orderResource) throws SQLException{
-		String sql = "{call SP_THEM_CTPN(?,?,?)}";
+public class MenuDetailData {
+	
+	public static void addMenuDetailData(MenuDetail menuDetail) throws SQLException{
+		String sql = "{call SP_THEM_CTMA(?,?,?)}";
 
 		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
 		try {
-			cStmt.setInt(1, OrderDetailData.getNextOrderDetailID()-1);
-			cStmt.setInt(2, orderResource.getOrderResourceID());
-			cStmt.setInt(3, orderResource.getOrderResourceQuantity());
+			cStmt.setInt(1, MenuData.getNextMenuID()-1);
+			cStmt.setInt(2, menuDetail.getMenuDetailResourceID());
+			cStmt.setInt(3, menuDetail.getMenuDetailResourceQuantity());
 			cStmt.execute();
 		} finally {
 			 try {
@@ -25,11 +25,11 @@ public class OrderResourceData {
 		return ;
 	}
 	
-	
-	public static ArrayList<OrderResource> getOrderResource(int x) throws SQLException {
+	public static ArrayList<MenuDetail> getMenuDetailData(int x) throws SQLException {
 		
-		ArrayList<OrderResource> arr = new ArrayList<OrderResource>();
-		String sql = "begin SP_TRACUU_CTPN(?,?); end;";
+		ArrayList<MenuDetail> arr = new ArrayList<MenuDetail>();
+		String sql = "begin SP_TRACUU_CTMA(?,?); end;";
+		
 
 		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
 		try {
@@ -45,7 +45,7 @@ public class OrderResourceData {
 			try {
 			
 				while (rs.next()) {
-					OrderResource r = new OrderResource();
+					MenuDetail r = new MenuDetail();
 					
 					int a = rs.getInt(1);
 					String b = rs.getNString(2);
@@ -57,12 +57,12 @@ public class OrderResourceData {
 					  
 					  
 					  
-					  r.setOrderResourceID(a);
-					  r.setOrderResourceName(b);
-					  r.setOrderResourceQuantity(c);
-					  r.setOrderResourceUnitPrice(d);
-					  r.setOrderResourceUnit(e);
-					  r.setOrderResourcePrice(f);
+					  r.setMenuDetailResourceID(a);
+					  r.setMenuDetailResourceName(b);
+					  r.setMenuDetailResourceQuantity(c);
+					  r.setMenuDetailResourceUnitPrice(d);
+					  r.setMenuDetailResourceUnit(e);
+					  r.setMenuDetailResourcePrice(f);
 			          arr.add(r);
 					
 				}			
@@ -76,5 +76,5 @@ public class OrderResourceData {
 			}
 		return arr;
 	}
-	
+
 }
