@@ -181,6 +181,15 @@ public class AddMenuController {
     	    return;
     	}
     	
+    	if(Integer.parseInt(resourcequantityTField.getText())<=0) {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Add Resource Error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Number value must be greater than 0");
+    	    alert.showAndWait();
+    	    return;
+    	}
+    	
     	Resource resource = resourceList.get(i);
     	
     	
@@ -258,7 +267,7 @@ public class AddMenuController {
     	    return;
     	}  
     	
-    	if(menutypeCBox.getItems().equals("") || menutypeCBox.getItems().isEmpty() ) {
+    	if(menutypeCBox.getSelectionModel().isEmpty() ) {
     		Alert alert = new Alert(AlertType.ERROR);
     		alert.setTitle("Add Resource Error");
     		alert.setHeaderText(null);

@@ -65,8 +65,8 @@
             </Menu>
             <Menu fx:id="customerMenu" mnemonicParsing="false" text="Customer">
               <items>
-                  <MenuItem fx:id="searchcusItem" mnemonicParsing="false" text="Search" />
-                <MenuItem fx:id="regcusItem" mnemonicParsing="false" text="Register" />
+                  <MenuItem fx:id="searchcusItem" mnemonicParsing="false" onAction="#viewCusInfoWindow" text="Search" />
+                <MenuItem fx:id="regcusItem" mnemonicParsing="false" onAction="#registerCustomer" text="Register" />
                   <MenuItem fx:id="updatecusItem" mnemonicParsing="false" text="Update Info" />
               </items>
             </Menu>

@@ -36,7 +36,7 @@ public class AddResourceController {
     @FXML
     void initialize() throws SQLException {
     	
-    	resourceunitCBox.getItems().addAll("gam", "kg", "con", "bó" , "gói", "củ" , "lon", "chai");
+    	resourceunitCBox.getItems().addAll("gam", "kg", "con", "bó" , "gói", "củ" , "lon", "chai", "ml");
     	resourceunitCBox.getSelectionModel().select(0);
     	resourceidTField.setText(String.valueOf(ResourceData.getNextResourceID()));
     	

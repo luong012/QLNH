@@ -294,6 +294,30 @@ public class MainController {
     	menuInfoWindow.start(newStage);   	    	
 
     }
+    
+    @FXML
+    void viewCusInfoWindow(ActionEvent event) {
+    	
+    	CustomerInfoWindow customerInfoWindow = new CustomerInfoWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	customerInfoWindow.start(newStage);   	
+
+    }
+    
+    @FXML
+    void registerCustomer(ActionEvent event) {
+    	
+    	AddCustomerWindow addCustomerWindow = new AddCustomerWindow();
+		Stage stage = (Stage) mainMenuBar.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	addCustomerWindow.start(newStage);   	
+
+    }
 
     
 }

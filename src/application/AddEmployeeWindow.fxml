@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddEmployeeController">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" text="Confirm" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="419.0" prefWidth="580.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" collapsible="false" text="Thông tin cá nhân">
+               <content>
+                  <GridPane prefHeight="211.0" prefWidth="569.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="178.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.0" minWidth="10.0" prefWidth="391.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Họ và tên: (*)" />
+                        <Label text="Ngày sinh:" GridPane.rowIndex="1" />
+                        <Label text="Số CMND: (*)" GridPane.rowIndex="2" />
+                        <Label text="Địa chỉ:" GridPane.rowIndex="3" />
+                        <Label text="SĐT:" GridPane.rowIndex="4" />
+                        <TextField fx:id="empnameTField" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
+                        <DatePicker fx:id="empbirthDPicker" prefHeight="30.0" prefWidth="391.0" style="-fx-opacity: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="empidTField" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="empaddressTField" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="empphoneTField" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" text="Thông tin chức vụ">
+               <content>
+                  <GridPane prefHeight="149.0" prefWidth="569.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="177.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="392.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Chức vụ tại nhà hàng:" />
+                        <RadioButton fx:id="manRadio" disable="true" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Quản lí" GridPane.columnIndex="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="position" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="cashierRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Thu ngân" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="waiterRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Phục vụ" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="chefRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Đầu bếp" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </content>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TitledPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
