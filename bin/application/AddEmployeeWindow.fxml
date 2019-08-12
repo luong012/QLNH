@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -9,9 +10,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddEmployeeController">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" text="Confirm" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/confirm.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
    </bottom>
@@ -65,14 +81,14 @@
                     </rowConstraints>
                      <children>
                         <Label text="Chức vụ tại nhà hàng:" />
-                        <RadioButton fx:id="manRadio" disable="true" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Quản lí" GridPane.columnIndex="1">
+                        <RadioButton fx:id="manRadio" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Quản lí" GridPane.columnIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="position" />
                            </toggleGroup>
                         </RadioButton>
                         <RadioButton fx:id="cashierRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Thu ngân" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <RadioButton fx:id="waiterRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Phục vụ" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="chefRadio" mnemonicParsing="false" style="-fx-opacity: 0.85;" text="Đầu bếp" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <RadioButton fx:id="chefRadio" mnemonicParsing="false" selected="true" style="-fx-opacity: 0.85;" text="Đầu bếp" toggleGroup="$position" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </content>

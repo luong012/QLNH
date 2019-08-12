@@ -80,5 +80,22 @@ public class TableTypeData {
 		return arr;
 	}
 	
+	
+	public static ArrayList<TableType> delTableData(TableType a) throws SQLException{
+		String sql = "{call SP_XOA_LOAIBAN(?)}";
+
+		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
+		try {
+			
+			cStmt.setInt(1, a.getTableID());
+			cStmt.execute();
+		} finally {
+			try {
+				cStmt.close();} catch (Exception ignore) {}
+			}
+		ArrayList<TableType> arr = TableTypeData.getTableTypeData();
+		
+		return arr;
+	}
 
 }

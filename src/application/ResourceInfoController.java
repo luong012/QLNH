@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ResourceInfoController {
 
@@ -21,13 +23,10 @@ public class ResourceInfoController {
     private TableView<Resource> resourceTView;
 
     @FXML
-    private Button addtableButton;
+    private Button addButton;
 
     @FXML
     private Button exitButton;
-
-    @FXML
-    private Button refreshButton;
 
     @FXML
     private TableColumn<Resource, Number> resourceidColumn;
@@ -50,8 +49,6 @@ public class ResourceInfoController {
     @FXML
     private TextField resourceidTField;
 
-    @FXML
-    private Button modButton;
     
     static ObservableList<Resource> resourceList;
 
@@ -65,6 +62,20 @@ public class ResourceInfoController {
     	newStage.initModality(Modality.WINDOW_MODAL);
     	newStage.initOwner(stage);
     	addResourceWindow.start(newStage);  
+    	
+    	newStage.setOnHiding (new EventHandler<WindowEvent>() {
+    		public void handle(WindowEvent we) {
+
+    			resourceTView.getItems().clear();
+    			try {
+    				updateResourceTView();
+    			} catch (SQLException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    		}
+		
+    	});
 
     }
     
@@ -93,10 +104,6 @@ public class ResourceInfoController {
     	
     }
     
-    @FXML
-    void viewModResourceWindow(ActionEvent event) {
-
-    }
 
     @FXML
     void refreshResource(ActionEvent event) throws SQLException {

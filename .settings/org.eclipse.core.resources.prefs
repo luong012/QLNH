@@ -1,2 +1,13 @@
 eclipse.preferences.version=1
 encoding//src/application/AddResourceController.java=UTF-8
+encoding//src/application/Bill.jrxml=UTF-8
+encoding//src/application/CustomerStatController.java=UTF-8
+encoding//src/application/DateController.java=UTF-8
+encoding//src/application/DetailIncomeReport.jrxml=UTF-8
+encoding//src/application/EmployeeData.java=UTF-8
+encoding//src/application/EmployeeInfoController.java=UTF-8
+encoding//src/application/IncomeReport.jrxml=UTF-8
+encoding//src/application/InventoryReport.jrxml=UTF-8
+encoding//src/application/MainController.java=UTF-8
+encoding//src/application/ModEmployeeController.java=UTF-8
+encoding//src/application/RevenueReport.jrxml=UTF-8

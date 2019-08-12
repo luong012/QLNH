@@ -5,6 +5,7 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 
@@ -17,6 +18,7 @@ public class ViewTableInfoWindow extends Application {
 	                   .getResource("/application/ViewTableInfoWindow.fxml"));
 	 
 	           primaryStage.setTitle("Table Infomation");
+	           primaryStage.initStyle(StageStyle.TRANSPARENT);
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
 	           primaryStage.setResizable(false);

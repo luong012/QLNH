@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -11,8 +12,22 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" text="Xác nhận" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/confirm.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
    </bottom>
@@ -39,7 +54,7 @@
                         <Label fx:id="locationLabel" text="Mô tả bàn:" GridPane.rowIndex="3" />
                         <TextField fx:id="tableidTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />
                         <TextField fx:id="maxcusnumberTField" disable="true" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="tabletypeCBox" prefHeight="30.0" prefWidth="439.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="tabletypeCBox" prefHeight="30.0" prefWidth="439.0" style="-fx-background-color: null;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextArea fx:id="tabledescTArea" prefHeight="218.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>

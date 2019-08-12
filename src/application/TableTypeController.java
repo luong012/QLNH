@@ -69,23 +69,9 @@ public class TableTypeController {
     	ArrayList<TableType> arr = TableTypeData.getTableTypeData();
     	for (int i=0;i<arr.size();i++) {
     		int tmp=arr.get(i).getTableID();
-    		modtableidCBox.getItems().add(String.valueOf(tmp));    	
     		deltableidCBox.getItems().add(String.valueOf(tmp));    	
 
     	}
-    	modtableidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-    		String tmp = "";
-    		int i=-1;
-    		while (!tmp.equals(newValue)&&i<arr.size()) {
-    			i++;
-    			tmp=String.valueOf(arr.get(i).getTableID());
-    		}
-    		if (i<arr.size() && i>-1) {
-    			modtabletypemaxcusTField.setText(String.valueOf(arr.get(i).getMaxCus()));
-    			modtabletypenameTField.setText(arr.get(i).getTableName());
-    		}
-    	});
-    	
     	deltableidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
     		String tmp = "";
     		int i=-1;
@@ -155,6 +141,22 @@ public class TableTypeController {
     	    return ;
     	}
     	
+    	TableType tableType = new TableType();
+    	tableType.setTableID(Integer.parseInt(deltableidCBox.getSelectionModel().getSelectedItem()));
+    	try {
+			TableTypeData.delTableData(tableType);
+		} catch (SQLException e) {
+			if (e.getErrorCode()==20003) {
+				
+				Alert alert = new Alert(AlertType.ERROR);
+	    		alert.setTitle("Delete Error");
+	    		alert.setHeaderText(null);
+	    		alert.setContentText("Another table using this table has already in use.");
+	    	    alert.showAndWait();
+	    	    return ;
+			}
+			e.printStackTrace();
+		}
     	closeWindow();
     }
     

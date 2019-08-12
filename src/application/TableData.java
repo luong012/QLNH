@@ -54,6 +54,44 @@ public class TableData {
 		return arr;
 	}
 	
+	public static ArrayList<Table> updateTableData(Table a) throws SQLException{
+		String sql = "{call SP_SUA_BAN(?,?,?)}";
+
+		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
+		try {
+			
+			cStmt.setInt(1, a.getTableID());
+			cStmt.setNString(2, a.getTableTypeName());
+			cStmt.setNString(3, a.getTableDesc());
+			cStmt.execute();
+		} finally {
+			try {
+				cStmt.close();} catch (Exception ignore) {}
+			}
+		
+		ArrayList<Table> arr = TableData.searchTableData(-1,null,null,-1);
+		
+		return arr;
+	}
+	
+	public static ArrayList<Table> delTableData(Table a) throws SQLException{
+		String sql = "{call SP_XOA_BAN(?)}";
+
+		CallableStatement cStmt = InitForm.connection.prepareCall(sql);
+		try {
+			
+			cStmt.setInt(1, a.getTableID());
+			cStmt.execute();
+		} finally {
+			try {
+				cStmt.close();} catch (Exception ignore) {}
+			}
+		
+		ArrayList<Table> arr = TableData.searchTableData(-1,null,null,-1);
+		
+		return arr;
+	}
+	
 	
 	public static ArrayList<Table> searchTableData(int x, String y, String z, int t) throws SQLException{
 		String sql = "begin SP_TRACUU_BAN(?,?,?,?,?); end;";

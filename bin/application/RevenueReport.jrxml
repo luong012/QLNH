@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RevenueReport" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e6622d1-bf9a-4ecc-83b5-7cb1d60b3d88">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\DataAdapter.xml"/>
+	<queryString>
+		<![CDATA[select * from hoadon, phieunhap]]>
+	</queryString>
+	<field name="MAHD" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MAHD"/>
+	</field>
+	<field name="MABAN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MABAN"/>
+	</field>
+	<field name="MAKH" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MAKH"/>
+	</field>
+	<field name="MANV" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MANV"/>
+	</field>
+	<field name="TRANGTHAIHD" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TRANGTHAIHD"/>
+	</field>
+	<field name="TGTAOHD" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="TGTAOHD"/>
+	</field>
+	<field name="TGXUATHD" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="TGXUATHD"/>
+	</field>
+	<field name="THANHTIEN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="THANHTIEN"/>
+	</field>
+	<field name="MAPN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MAPN"/>
+	</field>
+	<field name="NGAYPN" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="NGAYPN"/>
+	</field>
+	<field name="TONGTIENPN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TONGTIENPN"/>
+	</field>
+	<variable name="THANHTIEN1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{THANHTIEN}]]></variableExpression>
+	</variable>
+	<variable name="TONGTIENPN1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TONGTIENPN}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60">
+			<staticText>
+				<reportElement x="256" y="0" width="251" height="60" uuid="e94d1b1b-ea32-4018-b425-9239627eceb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[NHÀ HÀNG VEN HỒ
+262 Hùng Vương
+Thanh Hà - Hội An - Quảng Nam
+SĐT: 0123456789]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39">
+			<staticText>
+				<reportElement x="161" y="0" width="439" height="35" uuid="2d984650-fcac-4982-9e67-1cef43bd5bdd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ LỢI NHUẬN NHÀ HÀNG]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="453" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-10" y="0" width="820" height="351" backcolor="#FFFFFF" uuid="a72a768d-7686-4ca5-ab75-494b8153c2bf"/>
+			</rectangle>
+			<timeSeriesChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="2" width="800" height="349" backcolor="#C9C9C9" uuid="fc6c21a6-5028-4786-8174-67c9ce7ab1ee"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<timeSeries>
+						<seriesExpression><![CDATA["THU"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{TGTAOHD}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{THANHTIEN}]]></valueExpression>
+					</timeSeries>
+					<timeSeries>
+						<seriesExpression><![CDATA["CHI"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{NGAYPN}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{TONGTIENPN}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<staticText>
+				<reportElement x="580" y="360" width="80" height="30" uuid="9ae005ba-1eb8-443e-8088-b0538be5f84e"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Tổng thu:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="660" y="360" width="100" height="30" uuid="42c5965b-13f8-4e12-a839-faf6ac29ef08"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{THANHTIEN1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="580" y="390" width="80" height="30" uuid="84f71d05-58bb-4ba8-9d77-719ad41ebce6"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Tổng chi:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="660" y="390" width="100" height="30" uuid="a4fe299f-43ee-4f54-9f02-f7eeb7ab6c6a"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TONGTIENPN1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="580" y="420" width="80" height="30" uuid="40df8d0b-fc39-460d-a95e-34ac64e05482"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Doanh thu:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="660" y="420" width="100" height="30" uuid="d035abdb-db5f-48aa-844d-fd2a9fb000e8"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{THANHTIEN1}.subtract( $V{TONGTIENPN1} )]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

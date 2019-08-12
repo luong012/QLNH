@@ -60,5 +60,4 @@ public class Customer {
 	public void setCustomerPoint(int customerPoint) {
 		this.customerPoint = customerPoint;
 	}
-
 }

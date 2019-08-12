@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class AddMenuWindow extends Application {
@@ -16,6 +17,7 @@ public class AddMenuWindow extends Application {
 	           Parent root = FXMLLoader.load(getClass()
 	                   .getResource("/application/AddMenuWindow.fxml"));
 	           primaryStage.setTitle("Add Menu");
+	           primaryStage.initStyle(StageStyle.TRANSPARENT);
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
 	        

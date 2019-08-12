@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 //import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
@@ -27,7 +28,7 @@ public class InitForm extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/application/InitForm.fxml"));
 	
 			primaryStage.setTitle("Login");
-//			primaryStage.initStyle(StageStyle.TRANSPARENT);
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			
 			Scene s = new Scene(root);
 		
@@ -40,11 +41,11 @@ public class InitForm extends Application {
 			
 			initDatabase();
 			
-			PauseTransition delay = new PauseTransition(Duration.seconds(0));
+			PauseTransition delay = new PauseTransition(Duration.seconds(3));
 			delay.setOnFinished( event -> {
 				primaryStage.close();
-				MainWindow mainWindow = new MainWindow();
-				mainWindow.start(primaryStage);
+				LoginWindow loginWindow = new LoginWindow();
+				loginWindow.start(primaryStage);
 				}
 			);
 			delay.play();			

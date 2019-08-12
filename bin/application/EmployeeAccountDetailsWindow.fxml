@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -9,9 +10,16 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EmployeeAccountDetailsController">
    <bottom>
-      <HBox alignment="CENTER" prefHeight="41.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" text="Confirm" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#closeWindow" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/confirm.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
    </bottom>

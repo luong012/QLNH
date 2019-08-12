@@ -13,8 +13,22 @@
       <Label fx:id="passwordLabel" layoutX="128.0" layoutY="82.0" text="Password" />
       <TextField fx:id="usernameTField" layoutX="190.0" layoutY="46.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your username" />
       <PasswordField fx:id="passwordTField" layoutX="190.0" layoutY="78.0" onAction="#loginSystem" prefHeight="25.0" prefWidth="201.0" promptText="Enter your password" />
-      <Button fx:id="loginButton" layoutX="203.0" layoutY="112.0" mnemonicParsing="false" onAction="#loginSystem" prefHeight="25.0" prefWidth="63.0" text="Login" />
-      <Button fx:id="exitButton" layoutX="318.0" layoutY="112.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="63.0" text="Exit" />
+      <Button fx:id="loginButton" layoutX="203.0" layoutY="112.0" mnemonicParsing="false" onAction="#loginSystem" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: null;">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../../img/icons8-import-16.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="exitButton" layoutX="318.0" layoutY="112.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: null;">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../../img/close32.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <ImageView fx:id="loginImage" fitHeight="118.0" fitWidth="89.0" layoutX="23.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/accountlogin-icon_compressed.png" />

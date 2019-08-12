@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -11,8 +12,22 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="600.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" text="Xác nhận" />
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" text="Huỷ bỏ" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmAdd" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/confirm.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </HBox>
    </bottom>
@@ -34,7 +49,7 @@
                         <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Mã khách hàng: (*)" />
+                        <Label text="Số CMND: (*)" />
                         <Label text="Họ tên khách hàng: (*)" GridPane.rowIndex="1" />
                         <Label text="Ngày sinh:" GridPane.rowIndex="2" />
                         <TextField fx:id="cusidTField" style="-fx-opacity: 0.85;" GridPane.columnIndex="1" />

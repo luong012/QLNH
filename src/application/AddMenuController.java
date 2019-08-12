@@ -222,10 +222,6 @@ public class AddMenuController {
     	
     }
 
-    @FXML
-    void confirmOrder(ActionEvent event) {
-
-    }
 
     @FXML
     void setCostTFValue(ActionEvent event) {
@@ -260,7 +256,7 @@ public class AddMenuController {
     	
     	if(costTField.getText().equals("") || costTField.getText().isEmpty() ) {
     		Alert alert = new Alert(AlertType.ERROR);
-    		alert.setTitle("Add Resource Error");
+    		alert.setTitle("Add Menu Error");
     		alert.setHeaderText(null);
     		alert.setContentText("Required field cannot be left blank.");
     	    alert.showAndWait();
@@ -269,7 +265,7 @@ public class AddMenuController {
     	
     	if(menutypeCBox.getSelectionModel().isEmpty() ) {
     		Alert alert = new Alert(AlertType.ERROR);
-    		alert.setTitle("Add Resource Error");
+    		alert.setTitle("Add Menu Error");
     		alert.setHeaderText(null);
     		alert.setContentText("Required field cannot be left blank.");
     	    alert.showAndWait();
@@ -278,7 +274,7 @@ public class AddMenuController {
     	
     	if(menunameTField.getText().equals("") || menunameTField.getText().isEmpty() ) {
     		Alert alert = new Alert(AlertType.ERROR);
-    		alert.setTitle("Add Resource Error");
+    		alert.setTitle("Add Menu Error");
     		alert.setHeaderText(null);
     		alert.setContentText("Required field cannot be left blank.");
     	    alert.showAndWait();

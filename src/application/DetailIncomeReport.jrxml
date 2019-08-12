@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetailIncomeReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21181f91-fd95-4317-9543-bdd36e887364">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[Select hoadon.mahd,hoadon.thanhtien,
+			khachhang.hotenkh,
+			loaikhachhang.giatrikm,
+			cthd.slma,
+			monan.tenma, monan.giaban
+from hoadon,cthd,monan,khachhang, loaikhachhang
+where hoadon.mahd = cthd.mahd
+		and hoadon.makh = khachhang.makh
+		and cthd.mama= monan.mama
+		and khachhang.malkh=loaikhachhang.malkh
+order by mahd asc]]>
+	</queryString>
+	<field name="MAHD" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MAHD"/>
+	</field>
+	<field name="THANHTIEN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="THANHTIEN"/>
+	</field>
+	<field name="HOTENKH" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="HOTENKH"/>
+	</field>
+	<field name="GIATRIKM" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GIATRIKM"/>
+	</field>
+	<field name="SLMA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SLMA"/>
+	</field>
+	<field name="TENMA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TENMA"/>
+	</field>
+	<field name="GIABAN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GIABAN"/>
+	</field>
+	<variable name="CP" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{GIABAN}.multiply($F{SLMA} )]]></variableExpression>
+	</variable>
+	<variable name="Variable_1" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[1.0]]></initialValueExpression>
+	</variable>
+	<variable name="Variable_2" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[100]]></initialValueExpression>
+	</variable>
+	<group name="HD">
+		<groupExpression><![CDATA[$F{MAHD}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<textField>
+					<reportElement x="-35" y="0" width="100" height="30" uuid="44f9a085-c4b2-4e7a-9c3b-aea9c1f8d0cf"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{MAHD}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="90" y="0" width="130" height="30" uuid="3319f2a4-6e11-455d-b06b-bbcb8a7f58b4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HOTENKH}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<rectangle>
+					<reportElement x="450" y="0" width="81" height="20" forecolor="#FFFFFF" backcolor="#AFB8C4" uuid="61df11d4-c9fa-4331-b6ba-8ae8f7e3c33a"/>
+				</rectangle>
+				<textField>
+					<reportElement x="450" y="0" width="80" height="20" uuid="c5fd93d2-b961-4935-84b3-f2ee25b9d38c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3f2581a4-036c-451b-a693-8538b230e0e5"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{THANHTIEN}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="230" y="0" width="300" height="1" uuid="23ba6f68-8d4c-4bdd-a8f5-f20d648d42b5">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="30" y="23" width="501" height="1" uuid="40259c2c-6fff-4561-b8b7-95ce38f509ef">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="152" y="0" width="251" height="60" uuid="56d1f077-27ca-489e-8122-6ca50bf1a985"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[NHÀ HÀNG VEN HỒ
+262 Hùng Vương
+Thanh Hà - Hội An - Quảng Nam
+SĐT: 0123456789]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="0" width="301" height="35" uuid="51edd8b9-a1b4-46d5-8990-a8421e94aa00"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ CHI TIẾT HOÁ ĐƠN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="30" uuid="4cfd3521-83b2-4e67-8e21-5cadb766ea7c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="667b11f7-40a0-49fb-a6f5-4e9917939645"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên món ăn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="30" uuid="b87b67af-9faf-4f19-9f00-72abf8b0b47d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4706eeec-36f6-4f95-9095-8f9e0e794f25"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="30" uuid="3e2514cd-e5fa-4bc9-b5c6-0b8d1262fcf6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3f2581a4-036c-451b-a693-8538b230e0e5"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-35" y="0" width="100" height="30" uuid="5f692efb-38a8-491a-8102-0c41cbe8bb4b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã HD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="130" height="30" uuid="74a704a0-0857-4c3e-9fdd-b1d2d7a98940"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Họ tên khách hàng]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="0" width="100" height="30" uuid="df37dcba-d4c5-4cb5-9926-bd916c435f20">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="667b11f7-40a0-49fb-a6f5-4e9917939645"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="de757f29-ef98-4dcc-861a-c46596a7af0e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4706eeec-36f6-4f95-9095-8f9e0e794f25"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SLMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="100" height="30" uuid="e3a8b1ce-c0e5-4161-9c23-0922d7055753"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GIABAN}.multiply( $F{SLMA} )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="35">
+			<textField>
+				<reportElement x="410" y="1" width="100" height="30" uuid="1374e02c-440d-4f71-8f7f-c898954ba3f2"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="510" y="1" width="100" height="30" uuid="f09093b6-4880-41e3-a68f-2dde1c1c4024"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

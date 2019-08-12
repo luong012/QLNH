@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,7 +17,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class OrderDetailInfoController {
 
@@ -64,6 +67,9 @@ public class OrderDetailInfoController {
 
     @FXML
     private TextField costTField;
+    
+    @FXML
+    private Button addorderButton;
 
     @FXML
     private TableColumn<OrderDetail, Number> orderidColumn;
@@ -123,6 +129,31 @@ public class OrderDetailInfoController {
     	
     	updateOrderinfoTView(-1, null);
     	
+    }
+    
+    @FXML
+    void addOrder(ActionEvent event) throws SQLException {
+    	
+    	AddOrderWindow addOrderWindow = new AddOrderWindow();
+		Stage stage = (Stage) closeButton.getScene().getWindow();
+		Stage newStage = new Stage();
+    	newStage.initModality(Modality.WINDOW_MODAL);
+    	newStage.initOwner(stage);
+    	addOrderWindow.start(newStage);   	
+    	newStage.setOnHiding (new EventHandler<WindowEvent>() {
+    		public void handle(WindowEvent we) {
+
+    	    	orderinfoTView.getItems().clear();
+    			try {
+    				updateOrderinfoTView(-1, null);
+    			} catch (SQLException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    		}
+		
+    	});    	
+
     }
 
 

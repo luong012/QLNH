@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl"><name>dataadapter</name><driver>oracle.jdbc.driver.OracleDriver</driver><username>qlnh</username><password>qlnh</password><savePassword>true</savePassword><url>jdbc:oracle:thin:@localhost:1521:orcl18c</url><database></database><serverAddress></serverAddress></jdbcDataAdapter>

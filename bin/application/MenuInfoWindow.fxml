@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -25,7 +26,7 @@
                <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <top>
-                        <GridPane vgap="10.0" BorderPane.alignment="CENTER">
+                        <GridPane prefHeight="120.0" prefWidth="628.0" vgap="10.0" BorderPane.alignment="CENTER">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="91.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="214.0" />
@@ -45,7 +46,7 @@
                                     <Insets left="10.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox fx:id="menutypeCBox" onAction="#findMenuInfo" prefHeight="25.0" prefWidth="335.0" GridPane.columnIndex="3" />
+                              <ComboBox fx:id="menutypeCBox" onAction="#findMenuInfo" prefHeight="25.0" prefWidth="335.0" style="-fx-background-color: null;" GridPane.columnIndex="3" />
                               <Label text="Giá bán:" GridPane.rowIndex="1" />
                               <TextField fx:id="menucostTField" onAction="#findMenuInfo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label text="Số lượng khả dụng:" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -56,7 +57,14 @@
                               <TextField fx:id="menuavailablenumberTField" onAction="#findMenuInfo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <children>
-                                    <Button fx:id="findButton" mnemonicParsing="false" onAction="#findMenuInfo" prefHeight="25.0" prefWidth="82.0" text="Tìm kiếm" />
+                                    <Button fx:id="findButton" mnemonicParsing="false" onAction="#findMenuInfo" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: null;">
+                                       <graphic>
+                                          <ImageView>
+                                             <image>
+                                                <Image url="@../../img/search32.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                  </children>
                               </HBox>
                            </children>
@@ -69,8 +77,8 @@
                         <TableView fx:id="menuinfoTView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                           <columns>
                             <TableColumn fx:id="menuidColumn" prefWidth="75.0" text="Tên món ăn" />
-                            <TableColumn fx:id="menutypenameColumn" prefWidth="75.0" text="Loại món ăn" />
-                              <TableColumn fx:id="menucostColumn" prefWidth="75.0" text="Giá bán" />
+                            <TableColumn fx:id="menutypenameColumn" prefWidth="158.0" text="Loại món ăn" />
+                              <TableColumn fx:id="menucostColumn" prefWidth="155.0" text="Giá bán" />
                               <TableColumn fx:id="menuavailablenumberColumn" prefWidth="75.0" text="Số lượng khả dụng" />
                           </columns>
                            <columnResizePolicy>
@@ -84,9 +92,31 @@
                      <bottom>
                         <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="719.0" spacing="20.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Button fx:id="addmenuButton" mnemonicParsing="false" onAction="#viewAddMenu" prefHeight="25.0" prefWidth="95.0" text="Thêm món ăn" />
-                              <Button fx:id="modmenuButton" mnemonicParsing="false" onAction="#viewModMenu" prefHeight="25.0" prefWidth="89.0" text="Sửa món ăn" />
-                              <Button fx:id="viewdetailButton" mnemonicParsing="false" onAction="#viewMenuInfo" prefHeight="25.0" prefWidth="89.0" text="Xem chi tiết" />
+                              <Button fx:id="manmenuButton" mnemonicParsing="false" onAction="#viewManWindow" prefWidth="90.0" style="-fx-background-color: null;">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../../img/menu/icons8-meal-32.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="addmenuButton" mnemonicParsing="false" onAction="#viewAddMenu" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: null;">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../../img/menu/addmenu_compressed32.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Button fx:id="viewdetailButton" mnemonicParsing="false" onAction="#viewMenuInfo" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: null;">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../../img/info.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                            </children>
                         </HBox>
                      </bottom>
@@ -110,7 +140,14 @@
                                     <TextField fx:id="costTField" disable="true" opacity="0.85" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <children>
-                                          <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="73.0" text="Đóng" />
+                                          <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: null;">
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../../img/close.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
                                        </children>
                                     </HBox>
                                     <Label text="Giá tiền đề nghị:" GridPane.rowIndex="1" />
@@ -159,7 +196,7 @@
                               <Label text="Tên món ăn:" GridPane.rowIndex="1" />
                               <TextField fx:id="menudetailidTField" disable="true" opacity="0.85" GridPane.columnIndex="1" />
                               <TextField fx:id="menudetailnameTField" disable="true" opacity="0.85" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="menudetailtypeCBox" disable="true" opacity="0.85" prefHeight="25.0" prefWidth="410.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="menudetailtypeCBox" prefHeight="25.0" prefWidth="410.0" style="-fx-background-color: null;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="Loại món ăn:" GridPane.rowIndex="2" />
                            </children>
                            <columnConstraints>

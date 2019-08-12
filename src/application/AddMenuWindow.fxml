@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -28,18 +29,25 @@
                         <GridPane BorderPane.alignment="CENTER">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="90.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="304.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="90.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="10.0" prefWidth="346.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="63.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <Label text="Tên nguyên liệu:" />
-                              <TextField fx:id="resourceidTField" onAction="#findResource" prefHeight="25.0" prefWidth="170.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="resourceidTField" onAction="#findResource" prefHeight="25.0" prefWidth="331.0" GridPane.columnIndex="1" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                                  <children>
-                                    <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResource" prefHeight="25.0" prefWidth="82.0" text="Tìm kiếm" />
+                                    <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResource" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: null;">
+                                       <graphic>
+                                          <ImageView>
+                                             <image>
+                                                <Image url="@../../img/search.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                  </children>
                               </HBox>
                            </children>
@@ -67,21 +75,25 @@
                      <bottom>
                         <GridPane vgap="10.0" BorderPane.alignment="CENTER">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="183.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="0.0" prefWidth="332.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="156.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="0.0" prefWidth="313.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="428.0" minWidth="0.0" prefWidth="59.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
                               <Label text="Số lượng sử dụng: (*)" />
                               <TextField fx:id="resourcequantityTField" onAction="#addResource" prefHeight="25.0" prefWidth="365.0" GridPane.columnIndex="1" />
-                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <children>
-                                    <Button fx:id="addresourceButton" mnemonicParsing="false" onAction="#addResource" prefHeight="25.0" prefWidth="74.0" text="Thêm" />
-                                 </children>
-                              </HBox>
+                              <Button fx:id="addresourceButton" mnemonicParsing="false" onAction="#addResource" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: null;" GridPane.columnIndex="2">
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../../img/addmenu.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                            </children>
                         </GridPane>
                      </bottom>
@@ -131,13 +143,45 @@
                                     <Label text="Tổng chi phí:" />
                                     <Label text="Giá bán: (*)" GridPane.rowIndex="2" />
                                     <TextField fx:id="estimatedcostTField" disable="true" opacity="0.85" GridPane.columnIndex="1" />
-                                    <TextField fx:id="costTField" onAction="#confirmOrder" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <TextField fx:id="costTField" onAction="#confirmMenu" prefHeight="25.0" prefWidth="407.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Button fx:id="autocostnumberButton" mnemonicParsing="false" onAction="#setCostTFValue" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: null;">
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../../img/linkprice.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                       </children>
+                                    </HBox>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                        <children>
-                                          <Button fx:id="autocostnumberButton" mnemonicParsing="false" onAction="#setCostTFValue" prefHeight="25.0" prefWidth="103.0" text="Lấy giá đề nghị" />
-                                          <Button fx:id="delorderButton" mnemonicParsing="false" onAction="#delResource" prefHeight="25.0" prefWidth="73.0" text="Xoá" />
-                                          <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmMenu" prefHeight="25.0" prefWidth="73.0" text="Xác nhận" />
-                                          <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="73.0" text="Đóng" />
+                                          <Button fx:id="delorderButton" mnemonicParsing="false" onAction="#delResource" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: null;">
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../../img/delete.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                          <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmMenu" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: null;">
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../../img/confirm.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
+                                          <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: null;">
+                                             <graphic>
+                                                <ImageView>
+                                                   <image>
+                                                      <Image url="@../../img/close.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></Button>
                                        </children>
                                     </HBox>
                                     <Label text="Giá tiền đề nghị:" GridPane.rowIndex="1" />
@@ -169,7 +213,7 @@
                               <Label text="Tên món ăn: (*)" GridPane.rowIndex="1" />
                               <TextField fx:id="menuidTField" disable="true" opacity="0.85" GridPane.columnIndex="1" />
                               <TextField fx:id="menunameTField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="menutypeCBox" prefHeight="25.0" prefWidth="410.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="menutypeCBox" prefHeight="25.0" prefWidth="410.0" style="-fx-background-color: null;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="Loại món ăn: (*)" GridPane.rowIndex="2" />
                            </children>
                            <BorderPane.margin>

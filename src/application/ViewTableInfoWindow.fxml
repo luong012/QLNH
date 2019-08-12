@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -11,11 +12,38 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addtableButton" mnemonicParsing="false" onAction="#viewAddTableWindow" prefHeight="25.0" prefWidth="90.0" text="Thêm bàn" />
-            <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModTableWindow" prefHeight="25.0" prefWidth="90.0" text="Sửa bàn" />
-            <Button fx:id="delButton" mnemonicParsing="false" onAction="#viewDelTableWindow" prefHeight="25.0" prefWidth="90.0" text="Xoá bàn" />
-            <Button fx:id="tabletypemanButton" mnemonicParsing="false" onAction="#viewTableTypeWindow" prefHeight="25.0" prefWidth="90.0" text="Quản lí" />
-            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshTable" prefHeight="25.0" prefWidth="90.0" text="Cập nhật" />
+            <Button fx:id="addtableButton" mnemonicParsing="false" onAction="#viewAddTableWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/table/addtable_compressed32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModTableWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/table/modtable_compressed32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="delButton" mnemonicParsing="false" onAction="#viewDelTableWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/table/deltable_compressed32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="tabletypemanButton" mnemonicParsing="false" onAction="#viewTableTypeWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/table/mantable_compressed32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -67,14 +95,28 @@
                         <Insets left="40.0" />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox fx:id="tablestatusCBox" onAction="#findResult" prefHeight="25.0" prefWidth="403.0" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="tablestatusCBox" onAction="#findResult" prefHeight="25.0" prefWidth="403.0" style="-fx-background-color: null;" visibleRowCount="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="tableidTField" onAction="#findResult" prefHeight="25.0" prefWidth="326.0" GridPane.columnIndex="1" />
-                  <ComboBox fx:id="tabletypeCBox" onAction="#findResult" prefHeight="25.0" prefWidth="304.0" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="tabletypeCBox" onAction="#findResult" prefHeight="25.0" prefWidth="304.0" style="-fx-background-color: null;" GridPane.columnIndex="3" />
                   <TextField fx:id="cusnumTField" onAction="#findResult" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResult" prefHeight="25.0" prefWidth="90.0" text="Tìm kiếm" />
-                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="90.0" text="Thoát" />
+                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResult" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../../img/search32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../../img/close32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </HBox>
                </children>
@@ -86,7 +128,7 @@
       </TitledPane>
    </top>
    <center>
-      <TableView fx:id="tableTView" editable="true" prefHeight="317.0" prefWidth="795.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableTView" editable="true" prefHeight="355.0" prefWidth="729.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="tableidColumn" prefWidth="88.0" text="Mã bàn" />
           <TableColumn fx:id="tabletypeColumn" prefWidth="96.8399658203125" text="Loại bàn" />

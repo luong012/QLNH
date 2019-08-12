@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class TableTypeWindow extends Application {
 
@@ -14,6 +15,7 @@ public class TableTypeWindow extends Application {
 	           Parent root = FXMLLoader.load(getClass()
 	                   .getResource("/application/TableTypeWindow.fxml"));
 	           primaryStage.setTitle("Table Type Management");
+	           primaryStage.initStyle(StageStyle.TRANSPARENT);
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
 	       } catch(Exception e) {

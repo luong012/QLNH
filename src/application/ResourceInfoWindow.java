@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ResourceInfoWindow extends Application {
 
@@ -14,6 +15,7 @@ public class ResourceInfoWindow extends Application {
 	           Parent root = FXMLLoader.load(getClass()
 	                   .getResource("/application/ResourceInfoWindow.fxml"));
 	           primaryStage.setTitle("Resource Infomation");
+	           primaryStage.initStyle(StageStyle.TRANSPARENT);
 	           primaryStage.setScene(new Scene(root));
 	           primaryStage.show();
 	       } catch(Exception e) {

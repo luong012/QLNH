@@ -3,7 +3,8 @@ package application;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
- 
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -79,8 +80,7 @@ public class AppController {
 	}
 
 	public void closeWindow(ActionEvent event) {
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
-	    stage.close();
+	    Platform.exit();
 	}
 	
 	public void loginSystem(ActionEvent event) throws ClassNotFoundException, SQLException{
@@ -88,6 +88,7 @@ public class AppController {
 		String password = passwordTField.getText();
 		int roleResult = AppData.getRole(username, password);
 		if (roleResult>0) {
+			Global.activeEmp=EmployeeData.searchEmployeeData(AppData.getEmpID(username, password), null, null, -1).get(0);
 			Global.activeUsername = username;
 			Global.activeRole = roleResult;
 			Global.setRoleName(roleResult);

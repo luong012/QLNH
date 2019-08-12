@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -7,14 +8,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CustomerInfoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EmployeeInfoController">
    <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="461.0" prefWidth="62.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addcusButton" mnemonicParsing="false" onAction="#viewAddCusWindow" prefHeight="25.0" prefWidth="90.0" text="Thêm KH" />
-            <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModCusWindow" prefHeight="25.0" prefWidth="90.0" text="Sửa KH" />
-            <Button fx:id="delButton" mnemonicParsing="false" onAction="#DelCusAlert" prefHeight="25.0" prefWidth="90.0" text="Xoá KH" />
-            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshCus" prefHeight="25.0" prefWidth="90.0" text="Cập nhật" />
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#viewAddEmpWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/emp/add-emp.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="modButton" mnemonicParsing="false" onAction="#viewModEmpWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+               <graphic>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../img/emp/edit-emp-64_compressed.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -40,17 +53,17 @@
                   <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Mã khách hàng:">
+                  <Label text="Mã nhân viên:">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Số điện thoại:" GridPane.rowIndex="1">
+                  <Label text="Chức vụ:" GridPane.rowIndex="1">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
                   </Label>
-                  <Label text="Tên khách hàng:" GridPane.columnIndex="2">
+                  <Label text="Tên nhân viên:" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="40.0" />
                      </GridPane.margin>
@@ -58,7 +71,7 @@
                         <Insets left="20.0" />
                      </padding>
                   </Label>
-                  <Label text="Loại khách hàng:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label text="Tình trạng làm việc:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <padding>
                         <Insets left="20.0" />
                      </padding>
@@ -66,14 +79,28 @@
                         <Insets left="40.0" />
                      </GridPane.margin>
                   </Label>
-                  <TextField fx:id="cusidTField" onAction="#findResult" prefHeight="25.0" prefWidth="326.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="cusnameTField" onAction="#findResult" GridPane.columnIndex="3" />
-                  <TextField fx:id="cusphoneTField" onAction="#findResult" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox fx:id="custypeCBox" onAction="#findResult" prefHeight="25.0" prefWidth="499.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="empidTField" onAction="#findResult" prefHeight="25.0" prefWidth="326.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="empnameTField" onAction="#findResult" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="emproleCBox" onAction="#findResult" prefHeight="25.0" prefWidth="348.0" style="-fx-background-color: null;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="empstatusCBox" onAction="#findResult" prefHeight="25.0" prefWidth="499.0" style="-fx-background-color: null;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResult" prefHeight="25.0" prefWidth="90.0" text="Tìm kiếm" />
-                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="90.0" text="Thoát" />
+                        <Button fx:id="findButton" mnemonicParsing="false" onAction="#findResult" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../../img/search32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: null;">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../../img/close32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                   </HBox>
                </children>
@@ -85,15 +112,16 @@
       </TitledPane>
    </top>
    <center>
-      <TableView fx:id="cusTView" editable="true" prefHeight="317.0" prefWidth="795.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="empTView" editable="true" prefHeight="317.0" prefWidth="795.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="cusidColumn" prefWidth="88.0" text="Mã khách hàng" />
-          <TableColumn fx:id="cusnameColumn" prefWidth="96.8399658203125" text="Họ tên " />
-            <TableColumn fx:id="cusbirthColumn" prefWidth="152.39208984375" text="Ngày sinh" />
-            <TableColumn fx:id="cusaddressColumn" prefWidth="133.193603515625" text="Địa chỉ" />
-            <TableColumn fx:id="cusphoneColumn" prefWidth="75.0" text="Số điện thoại" />
-            <TableColumn fx:id="custypeColumn" prefWidth="350.199951171875" text="Loại khách hàng" />
-            <TableColumn fx:id="cuspointColumn" prefWidth="75.0" text="Điểm tích luỹ" />
+          <TableColumn fx:id="empidColumn" prefWidth="88.0" text="Mã nhân viên" />
+          <TableColumn fx:id="empnameColumn" prefWidth="96.8399658203125" text="Họ tên " />
+            <TableColumn fx:id="empbirthColumn" prefWidth="152.39208984375" text="Ngày sinh" />
+            <TableColumn fx:id="empaddressColumn" prefWidth="133.193603515625" text="Địa chỉ" />
+            <TableColumn fx:id="empphoneColumn" prefWidth="75.0" text="Số điện thoại" />
+            <TableColumn fx:id="empwdateColumn" prefWidth="75.0" text="Ngày vào làm" />
+            <TableColumn fx:id="empstatusColumn" prefWidth="75.0" text="Tình trạng" />
+            <TableColumn fx:id="emprolenameColumn" prefWidth="350.199951171875" text="Chức vụ" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

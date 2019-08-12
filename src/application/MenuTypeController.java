@@ -56,35 +56,35 @@ public class MenuTypeController {
     	addmenutypeidTField.setText(String.valueOf(MenuTypeData.getNextMenuTypeID()));
     	
     	ArrayList<MenuType> arr = MenuTypeData.getMenuTypeData();
-    	for (int i=0;i<arr.size();i++) {
-    		int tmp=arr.get(i).getMenuTypeID();
-    		modmenutypeidCBox.getItems().add(String.valueOf(tmp));    	
-    		delmenutypeidCBox.getItems().add(String.valueOf(tmp));    	
-
-    	}
-    	modmenutypeidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-    		String tmp = "";
-    		int i=-1;
-    		while (!tmp.equals(newValue)&&i<arr.size()) {
-    			i++;
-    			tmp=String.valueOf(arr.get(i).getMenuTypeID());
-    		}
-    		if (i<arr.size() && i>-1) {
-    			modmenutypenameTField.setText(arr.get(i).getMenuTypeName());
-    		}
-    	});
-    	
-    	delmenutypeidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-    		String tmp = "";
-    		int i=-1;
-    		while (!tmp.equals(newValue)&&i<arr.size()) {
-    			i++;
-    			tmp=String.valueOf(arr.get(i).getMenuTypeID());
-    		}
-    		if (i<arr.size() && i>-1) {
-    			delmenutypenameTField.setText(arr.get(i).getMenuTypeName());
-    		}
-    	});
+//    	for (int i=0;i<arr.size();i++) {
+//    		int tmp=arr.get(i).getMenuTypeID();
+////    		modmenutypeidCBox.getItems().add(String.valueOf(tmp));    	
+//    		delmenutypeidCBox.getItems().add(String.valueOf(tmp));    	
+//
+////    	}
+////    	modmenutypeidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+////    		String tmp = "";
+////    		int i=-1;
+////    		while (!tmp.equals(newValue)&&i<arr.size()) {
+////    			i++;
+////    			tmp=String.valueOf(arr.get(i).getMenuTypeID());
+////    		}
+////    		if (i<arr.size() && i>-1) {
+////    			modmenutypenameTField.setText(arr.get(i).getMenuTypeName());
+////    		}
+////    	});
+////    	
+//    	delmenutypeidCBox.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+//    		String tmp = "";
+//    		int i=-1;
+//    		while (!tmp.equals(newValue)&&i<arr.size()) {
+//    			i++;
+//    			tmp=String.valueOf(arr.get(i).getMenuTypeID());
+//    		}
+//    		if (i<arr.size() && i>-1) {
+//    			delmenutypenameTField.setText(arr.get(i).getMenuTypeName());
+//    		}
+//    	});
     	
  
     	

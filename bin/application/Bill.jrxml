@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="77b8c02f-983a-486f-b574-ed10e29241dd">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\DataAdapter.xml"/>
+	<parameter name="mahd" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[select hd.mahd, hd.manv, hd.makh, hd.maban,hd.thanhtien, hd.tgtaohd,
+			nv.hotennv, 
+			kh.hotenkh,
+			lkh.giatrikm,
+			ma.tenma, ma.giaban,
+			cthd.slma
+from hoadon hd, nhanvien nv, khachhang kh, cthd, monan ma, loaikhachhang lkh
+where hd.mahd=cthd.mahd 
+and		nv.manv=hd.manv
+and		hd.makh=kh.makh
+and 		kh.malkh=lkh.malkh
+and		ma.mama=cthd.mama
+and		hd.mahd=$P{mahd}]]>
+	</queryString>
+	<field name="MAHD" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MAHD"/>
+	</field>
+	<field name="MANV" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MANV"/>
+	</field>
+	<field name="MAKH" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="MAKH"/>
+	</field>
+	<field name="MABAN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="MABAN"/>
+	</field>
+	<field name="THANHTIEN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="THANHTIEN"/>
+	</field>
+	<field name="TGTAOHD" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="TGTAOHD"/>
+	</field>
+	<field name="HOTENNV" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="HOTENNV"/>
+	</field>
+	<field name="HOTENKH" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="HOTENKH"/>
+	</field>
+	<field name="GIATRIKM" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GIATRIKM"/>
+	</field>
+	<field name="TENMA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TENMA"/>
+	</field>
+	<field name="GIABAN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="GIABAN"/>
+	</field>
+	<field name="SLMA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SLMA"/>
+	</field>
+	<variable name="SLMA1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{SLMA}]]></variableExpression>
+	</variable>
+	<variable name="GIABAN1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{GIABAN}.multiply($F{SLMA})]]></variableExpression>
+	</variable>
+	<title>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="62" width="200" height="30" uuid="64f35908-238d-4a1f-bfab-decdb8c395d7"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="20"/>
+				</textElement>
+				<text><![CDATA[BIÊN LAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="402" height="20" uuid="f7b29e68-db1f-4bfe-bf78-2932c21f8792"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="13"/>
+				</textElement>
+				<text><![CDATA[NHÀ HÀNG VEN HỒ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="14" width="198" height="42" uuid="7252a476-13a7-4f7d-b07b-3d7525d0ac79"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[262 Hùng Vương 
+Thanh Hà - Hội An - Quảng Nam
+SĐT: 0123456789]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement x="413" y="0" width="100" height="30" uuid="f01df7f0-f1e8-4d3b-a390-98d996960fb7"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mahd}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="326" y="0" width="100" height="30" uuid="7caa6f2b-a1be-4c2e-976f-4dbae576cfe6"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Mã HD:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="20" width="100" height="30" uuid="ab45d67b-d7ab-449c-899d-755ec46d7fde"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Tên khách hàng:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="20" width="100" height="30" uuid="d1a5c6a9-2cff-49a5-9954-2e24a3efb7f7"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HOTENKH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="326" y="40" width="100" height="30" uuid="bd0461fa-8d73-4e02-b9b5-e6d98ecf5e7c"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Nhân viên:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="413" y="40" width="100" height="30" uuid="e30f2239-43f7-4b89-b3de-d7e7b0cff2b3"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HOTENNV}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="326" y="60" width="100" height="30" uuid="e7c62a6e-df2b-4cb4-a482-11e7e8d08039"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Thời gian:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy hh:mm:ss">
+				<reportElement x="413" y="60" width="126" height="30" uuid="1fb0270e-e7f2-455f-bbd3-30a7c9cb9694"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TGTAOHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="0" width="100" height="30" uuid="b8de48e4-62ce-452b-9514-7e7954677a38"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MABAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="0" width="100" height="30" uuid="1372146f-fe2c-43a5-a284-e7e56740b482"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[BÀN:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="440" y="1" width="100" height="30" uuid="a753444a-5e15-433e-a441-9a805040fac7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3fb0b50c-b46e-4740-aa90-52946da7b6c2"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="0" width="100" height="30" uuid="3309e7bd-3bdf-4007-b874-8542686bf46b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92801f0c-e351-4953-a193-1a2ba2735a99"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên món ăn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="30" uuid="ab15e3b5-bd53-41ff-9a14-2a4b052ca99f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de77851d-19c3-4f43-bafc-ce6ac8fec72a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số lượng mua]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="-1" width="100" height="30" uuid="a0082cb9-389c-4ab4-a59a-d93dba7cc8ca">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3fb0b50c-b46e-4740-aa90-52946da7b6c2"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GIABAN}.multiply($F{SLMA})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="-1" width="100" height="30" uuid="f5fb4444-8ee3-42bd-9610-10a6c4b3f9b0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="92801f0c-e351-4953-a193-1a2ba2735a99"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="-1" width="100" height="30" uuid="3a129e3c-d766-4abd-a6cd-ce187c59dd03">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de77851d-19c3-4f43-bafc-ce6ac8fec72a"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SLMA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="0" width="100" height="30" uuid="c0be0f30-b631-4f87-b7e5-cd1caadd6067"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{GIABAN1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="-1" width="100" height="30" uuid="00104557-012a-4c0f-b0f7-66a5dd5f9361"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="1" width="100" height="30" uuid="891131d8-52b5-46b8-b1e2-8379b331a7cc"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SLMA1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="113" splitType="Stretch">
+			<textField>
+				<reportElement x="410" y="20" width="130" height="30" uuid="e962aa82-3413-4a63-b5a7-bfb931017d2d"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THANHTIEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="-1" width="100" height="30" uuid="2b45549a-4f67-420a-972a-189310cd7595"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GIATRIKM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="0" width="100" height="30" uuid="ebf97bb9-1281-481d-a839-4886b3bacf20"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Khuyến mãi (%)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="20" width="100" height="30" uuid="6ce62c90-e6d9-4592-8fff-d38660e2162e"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="13"/>
+				</textElement>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="57" width="402" height="30" uuid="cb6ce7de-3dc6-4a81-afbe-5156cf347355"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[Cảm ơn quý khách đã sử dụng dịch vụ tại nhà hàng chúng tôi!]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="371" y="82" width="100" height="30" uuid="25c82d6f-7b2e-4729-bf44-c50152e712a5"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="471" y="82" width="100" height="30" uuid="b2bba0bb-ecc5-48e5-b14b-b82932bee91e"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
